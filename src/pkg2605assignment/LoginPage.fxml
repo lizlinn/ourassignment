@@ -28,7 +28,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="152.0" layoutX="177.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
       <Label fx:id="label2" alignment="CENTER" layoutX="216.0" layoutY="71.0" minHeight="16" minWidth="69" text="MyFitness" textFill="#ff3b30">
          <font>
-            <Font name="Arial Bold" size="8.0" />
+            <Font name="SansSerif Bold" size="8.0" />
          </font>
       </Label>
       <TextField layoutX="200.0" layoutY="92.0" prefHeight="14.0" prefWidth="101.0" promptText="Username">
