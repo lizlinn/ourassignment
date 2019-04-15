@@ -7,6 +7,8 @@ package pkg2605assignment;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -17,8 +19,14 @@ import javafx.scene.control.ComboBox;
  * @author michellexu
  */
 public class SignUpPageController implements Initializable {
+    
+    //List for ComboBox
+    ObservableList<String> genderList = FXCollections.observableArrayList("Female", 
+            "Male", "Other", "Prefer not to say");
+    
+    //Gender ComboBox
+    @FXML private ComboBox genderComboBox;
 
-@FXML private ComboBox comboBox;
     /**
      * Initializes the controller class.
      */
@@ -27,7 +35,7 @@ public class SignUpPageController implements Initializable {
         // TODO
         
         //These items are for configuring the ComboBox
-        comboBox.getItems().addAll("Female", "Male", "Other", "Prefer not to say");
+        genderComboBox.setItems(genderList);
 
         
     }    
