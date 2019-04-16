@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.SettingsPageController">
+   <children>
+      <VBox layoutY="70.0" prefHeight="207.0" prefWidth="140.0" style="-fx-background-color: #ff3b30;">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: ff3b30;" styleClass="btns" stylesheets="@settingspage2.css">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
+                     <image>
+                        <Image url="@../../../Side%20pane%20icons/Dashboard%20%23ff3b30.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="TOP" text="Dashboard" textFill="WHITE" translateX="33.0" translateY="12.0">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="140.0" styleClass="btns" stylesheets="@settingspage2.css">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
+                     <image>
+                        <Image url="@../../../Side%20pane%20icons/Body%20Profile.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="TOP" text="Body Profile" textFill="WHITE" translateX="33.0" translateY="12.0">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: ffffff;" styleClass="btns" stylesheets="@settingspage2.css">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
+                     <image>
+                        <Image url="@../../../Side%20pane%20icons/Medical%20Report.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="TOP" text="Health Records" textFill="#ff3b30" translateX="33.0" translateY="12.0">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="140.0" styleClass="btns" stylesheets="@settingspage2.css">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
+                     <image>
+                        <Image url="@../../../Side%20pane%20icons/Settings.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="TOP" text="Settings" textFill="WHITE" translateX="33.0" translateY="12.0">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="140.0" styleClass="btns" stylesheets="@settingspage2.css">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
+                     <image>
+                        <Image url="@../../../Side%20pane%20icons/Sign%20out.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="TOP" text="Sign Out" textFill="WHITE" translateX="33.0" translateY="12.0">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Rectangle fill="#ff3b30" height="70.0" stroke="#ff3b30" strokeType="INSIDE" width="140.0" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../MyFitness%20Heart%20Logo%20-%20White%20(%23FFFFFF).png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="53.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MyFitness">
+         <font>
+            <Font name="SansSerif Bold" size="15.0" />
+         </font>
+      </Text>
+      <Rectangle fill="#ff3b30" height="70.0" layoutY="277.0" stroke="#ff3b30" strokeType="INSIDE" width="140.0" />
+      <VBox layoutY="347.0" prefHeight="54.0" prefWidth="140.0" style="-fx-background-color: #ff3b30;">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="140.0" styleClass="btns" stylesheets="@settingspage2.css">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
+                     <image>
+                        <Image url="@../../../Side%20pane%20icons/Need%20Help.png" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="TOP" text="Need Help?" textFill="WHITE" translateX="33.0" translateY="12.0">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
