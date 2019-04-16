@@ -19,7 +19,7 @@
                <children>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
                      <image>
-                        <Image url="@../../Icons/Dashboard%20%23ff3b30.png" />
+                        <Image url="@../../../Icons/Dashboard%20%23ff3b30.png" />
                      </image>
                   </ImageView>
                   <Label contentDisplay="TOP" text="Dashboard" textFill="#ff3b30" translateX="33.0" translateY="12.0">
@@ -61,7 +61,7 @@
                <children>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
                      <image>
-                        <Image url="@../../Icons/Settings.png" />
+                        <Image url="@../../../Icons/Settings.png" />
                      </image>
                   </ImageView>
                   <Label contentDisplay="TOP" text="Settings" textFill="WHITE" translateX="33.0" translateY="12.0">
@@ -71,7 +71,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="140.0" styleClass="btns" stylesheets="@settingspage2.css">
+            <HBox layoutX="10.0" layoutY="130.0" prefHeight="40.0" prefWidth="140.0" styleClass="btns" stylesheets="@settingspage2.css">
                <children>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" translateX="25.0" translateY="10.0">
                      <image>
