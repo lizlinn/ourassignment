@@ -27,7 +27,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="309.0" layoutX="116.0" layoutY="36.0" stroke="WHITE" strokeType="INSIDE" width="394.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="316.0" layoutX="116.0" layoutY="36.0" stroke="WHITE" strokeType="INSIDE" width="394.0" />
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="299.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../MyFitness%20Heart%20Logo%20-%20White%20(%23FF3B30).png" />
