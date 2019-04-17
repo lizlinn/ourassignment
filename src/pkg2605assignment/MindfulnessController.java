@@ -56,7 +56,7 @@ public class MindfulnessController implements Initializable {
 
         ResultSet rs = st.executeQuery(selectQuery);
         
-        mindfulnessweek.
+        
         
         st.close();
         conn.close();
