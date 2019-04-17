@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -16,124 +15,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.SettingsPageController">
    <children>
-      <VBox prefHeight="567.0" prefWidth="236.0" style="-fx-background-color: #ff3b30;">
-         <children>
-            <Pane prefHeight="131.0" prefWidth="236.0">
-               <children>
-                  <Label layoutX="106.0" layoutY="52.0" text="MyFitness" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="35.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Icons/MyFitness%20Heart%20Logo%20-%20White%20(%23FFFFFF).png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Dashboard" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Icons/Dashboard.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets left="57.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Body Profile" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Icons/Body%20Profile.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="57.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Health Records" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Icons/Medical%20Report.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets left="57.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Settings" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Icons/Settings.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets left="57.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Sign Out" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Icons/Sign%20out.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets left="57.0" />
-               </padding>
-            </Button>
-            <Pane prefHeight="110.0" prefWidth="236.0" />
-            <Button alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Need Help" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Icons/Need%20Help.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <padding>
-                  <Insets left="57.0" />
-               </padding>
-            </Button>
-         </children>
-      </VBox>
-      <Label layoutX="255.0" layoutY="40.0" text="Welcome Name," textFill="#ff3b30">
+      <Label layoutX="31.0" layoutY="40.0" text="Welcome Name," textFill="#ff3b30">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <VBox layoutX="255.0" layoutY="94.0" prefHeight="285.0" prefWidth="161.0" spacing="10.0">
+      <VBox layoutX="31.0" layoutY="94.0" prefHeight="285.0" prefWidth="161.0" spacing="10.0">
          <children>
             <AnchorPane>
                <children>
@@ -193,7 +80,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <Pane layoutX="265.0" layoutY="405.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="41.0" layoutY="405.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
          <children>
             <AnchorPane layoutX="17.0" layoutY="10.0">
                <children>
@@ -216,7 +103,7 @@
             </AnchorPane>
          </children>
       </Pane>
-      <Pane layoutX="436.0" layoutY="405.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="213.0" layoutY="405.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
          <children>
             <AnchorPane layoutX="32.0" layoutY="8.0">
                <children>
@@ -244,7 +131,7 @@
             </AnchorPane>
          </children>
       </Pane>
-      <Pane layoutX="607.0" layoutY="405.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="386.0" layoutY="405.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
          <children>
             <AnchorPane layoutX="26.0" layoutY="12.0">
                <children>
@@ -267,7 +154,7 @@
             </AnchorPane>
          </children>
       </Pane>
-      <Pane layoutX="778.0" layoutY="405.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="557.0" layoutY="405.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
          <children>
             <AnchorPane layoutX="17.0" layoutY="11.0">
                <children>
@@ -290,27 +177,24 @@
             </AnchorPane>
          </children>
       </Pane>
-      <HBox layoutX="583.0" layoutY="102.0" prefHeight="269.0" prefWidth="330.0">
-         <children>
-            <BarChart fx:id="mindfulnessweek" title="Mindfulness Minutes">
-              <xAxis>
-                <CategoryAxis fx:id="weekdate" label="Date" side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis fx:id="weekminutes" label="Minutes" side="LEFT" />
-              </yAxis>
-            </BarChart>
-         </children>
-      </HBox>
-      <Label layoutX="466.0" layoutY="110.0" prefHeight="26.0" prefWidth="141.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
+      <HBox layoutX="583.0" layoutY="102.0" prefHeight="269.0" prefWidth="330.0" />
+      <Label layoutX="245.0" layoutY="110.0" prefHeight="26.0" prefWidth="141.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="466.0" layoutY="129.0" prefHeight="26.0" prefWidth="141.0" text="Make it a habit." textAlignment="CENTER" textFill="#ff3b30">
+      <Label layoutX="245.0" layoutY="129.0" prefHeight="26.0" prefWidth="141.0" text="Make it a habit." textAlignment="CENTER" textFill="#ff3b30">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
+      <BarChart fx:id="mindfulnessweek" layoutX="388.0" layoutY="107.0" prefHeight="245.0" prefWidth="499.0" title="Mindfulness Minutes">
+        <xAxis>
+          <CategoryAxis fx:id="weekdate" label="Date" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="weekminutes" label="Minutes" side="LEFT" />
+        </yAxis>
+      </BarChart>
    </children>
 </AnchorPane>
