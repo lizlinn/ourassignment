@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -26,7 +28,7 @@ import javafx.scene.chart.NumberAxis;
 public class MindfulnessController implements Initializable {
 
     @FXML
-    private BarChart<?, ?> mindfulnessweek;
+    private BarChart<String, String> mindfulnessweek;
 
     @FXML
     private CategoryAxis weekdate;
@@ -41,8 +43,9 @@ public class MindfulnessController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
+        
     }
-
+/*
     public static void printBarchart() throws SQLException {
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:assignmentdata.db");
@@ -50,11 +53,27 @@ public class MindfulnessController implements Initializable {
         //create statement
         Statement st = conn.createStatement();
         
-        System.out.println("Connected");
+        //System.out.println("Connected");
         
-        String selectQuery = "SELECT ID, ActivityDay, MindfulMinutes FROM Mental wellbeing;";
+        String selectQuery = "SELECT ActivityDay, MindfulMinutes FROM Mental wellbeing;";
 
         ResultSet rs = st.executeQuery(selectQuery);
+        
+   
+        
+        while (rs.next()) {
+            ObservableList<BarChart> barChartData = FXCollections.observableArrayList();
+            
+            for (int i = 1; 1 < rs.getMetaData().getColumnCount(); i++) {
+                
+                barChartData.add(i);
+            }
+            
+            
+             
+        }
+                
+        mindfulnessweek.setItems(barChartData);
         
         
         
@@ -62,5 +81,5 @@ public class MindfulnessController implements Initializable {
         conn.close();
 
     }
-
+*/
 }

@@ -39,6 +39,8 @@ public class Main extends Application {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardStatLastMedicalCheck.png")));
         
         stage.show();
+        
+        BodyProfilePageController.printBMILineChart();
     }
 
     public static void main(String[] args) {

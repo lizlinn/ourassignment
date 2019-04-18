@@ -8,6 +8,13 @@ package pkg2605assignment;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import java.lang.ClassNotFoundException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * FXML Controller class
@@ -22,6 +29,22 @@ public class BodyProfilePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    public static void printBMILineChart() throws SQLException {
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:assignmentdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT BMI, Date FROM BMI (mass and height)";
+
+        ResultSet rs = st.executeQuery(selectQuery);
+        
+        st.close();
+        conn.close();
+    }
+
 }
