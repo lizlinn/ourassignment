@@ -16,6 +16,8 @@ public class Main extends Application {
         
         stage.setScene(scene);
         stage.show();
+        
+        BodyProfilePageController.printBMILineChart();
     }
 
     public static void main(String[] args) {
