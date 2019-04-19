@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="pkg2605assignment.MindfulnessController">
+<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="63.0" layoutY="85.0" prefHeight="33.0" prefWidth="158.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
+      <Label layoutX="24.0" layoutY="52.0" prefHeight="33.0" prefWidth="158.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="63.0" layoutY="104.0" prefHeight="41.0" prefWidth="163.0" text="Make it a habit." textAlignment="CENTER" textFill="#ff3b30">
+      <Label layoutX="24.0" layoutY="68.0" prefHeight="41.0" prefWidth="163.0" text="Make it a habit." textAlignment="CENTER" textFill="#ff3b30">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <PieChart fx:id="chart" layoutX="259.0" prefHeight="372.0" prefWidth="419.0" />
+      <PieChart fx:id="chart" layoutX="141.0" layoutY="11.0" prefHeight="263.0" prefWidth="317.0" />
    </children>
 </AnchorPane>

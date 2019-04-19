@@ -36,6 +36,16 @@ public class HomepageController implements Initializable {
     private Button btnNeedHelp;
     @FXML
     private ImageView dashboardIcon;
+    @FXML
+    private Button hbtnActivity;
+    @FXML
+    private AnchorPane hdashboardHolderPane;
+    @FXML
+    private Button hbtnNutrition;
+    @FXML
+    private Button hbtnMindfulness;
+    @FXML
+    private Button hbtnSleep;
 
     /**
      * Initializes the controller class.
@@ -74,6 +84,30 @@ public class HomepageController implements Initializable {
     private void switchNeedHelp(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("NeedHelpPage.fxml"));
         holderPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void hswitchActivity(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Activity.fxml"));
+        hdashboardHolderPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void hswitchNutrition(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Nutrition.fxml"));
+        hdashboardHolderPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void hswitchMindfulness(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Mindfulness.fxml"));
+        hdashboardHolderPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void hswitchSleep(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("Sleep.fxml"));
+        hdashboardHolderPane.getChildren().setAll(pane);
     }
     
 
