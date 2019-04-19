@@ -37,9 +37,9 @@ public class BodyProfilePageController implements Initializable {
     //@FXML
     //private Label label;
     @FXML
-    private static LineChart<String, Double> bmiLineChart;
-//    @FXML
-//    private CategoryAxis bmiX;
+    private LineChart<String, Double> bmiLineChart;
+    @FXML
+    private CategoryAxis bmiX;
 //    @FXML
 //    private NumberAxis bmiY;
 //    @FXML
@@ -58,7 +58,7 @@ public class BodyProfilePageController implements Initializable {
         }
     }
     
-    public static void bmiChart() throws SQLException {
+    public void bmiChart() throws SQLException {
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
@@ -77,7 +77,6 @@ public class BodyProfilePageController implements Initializable {
                 series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
                 System.out.println(rs.getString(1));
                 System.out.println(rs.getDouble(2));
-            
 
             }
             bmiLineChart.getData().add(series);

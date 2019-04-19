@@ -113,7 +113,7 @@
       </Pane>
       <LineChart fx:id="bmiLineChart" layoutX="33.0" layoutY="271.0" prefHeight="239.0" prefWidth="288.0" title="BMI">
         <xAxis>
-          <CategoryAxis label="Date" side="BOTTOM" />
+          <CategoryAxis fx:id="bmiX" label="Date" side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis label="BMI" side="LEFT" />
