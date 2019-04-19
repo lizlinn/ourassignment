@@ -124,7 +124,7 @@
             </Button>
          </children>
       </VBox>
-      <AnchorPane id="AnchorPane" fx:id="holderPane" layoutX="236.0" prefHeight="567.0" prefWidth="717.0">
+      <AnchorPane id="AnchorPane" fx:id="holderPane" layoutX="236.0" prefHeight="567.0" prefWidth="717.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label fx:id="hwelcome" layoutX="27.0" layoutY="44.0" text="Welcome Name," textFill="#ff3b30">
                <font>
