@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.MindfulnessController">
    <children>
       <Label layoutX="24.0" layoutY="52.0" prefHeight="33.0" prefWidth="158.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
          <font>
@@ -17,6 +19,13 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <PieChart fx:id="chart" layoutX="141.0" layoutY="11.0" prefHeight="263.0" prefWidth="317.0" />
+      <BarChart fx:id="mindfulChart" layoutX="141.0" layoutY="22.0" legendVisible="false" prefHeight="264.0" prefWidth="333.0" title="Mindful Minutes">
+        <xAxis>
+          <CategoryAxis label="Date" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Minutes" side="LEFT" />
+        </yAxis>
+      </BarChart>
    </children>
 </AnchorPane>
