@@ -126,7 +126,7 @@
       </VBox>
       <AnchorPane id="AnchorPane" fx:id="holderPane" layoutX="236.0" prefHeight="567.0" prefWidth="717.0">
          <children>
-            <Label layoutX="27.0" layoutY="44.0" text="Welcome Name," textFill="#ff3b30">
+            <Label fx:id="hwelcome" layoutX="27.0" layoutY="44.0" text="Welcome Name," textFill="#ff3b30">
                <font>
                   <Font size="30.0" />
                </font>
@@ -195,12 +195,12 @@
                <children>
                   <AnchorPane layoutX="17.0" layoutY="10.0">
                      <children>
-                        <Label alignment="CENTER" text="Resting Heart Rate">
+                        <Label alignment="CENTER" layoutY="2.0" text="Resting Heart Rate">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="5.0" layoutY="72.0" text="30 BPM">
+                        <Label fx:id="hRestingHeartRate" layoutX="5.0" layoutY="72.0" text="30 BPM">
                            <font>
                               <Font name="Segoe UI Light" size="30.0" />
                            </font>
@@ -218,12 +218,12 @@
                <children>
                   <AnchorPane layoutX="32.0" layoutY="8.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="12.0" text="Nutrition">
+                        <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Nutrition">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutY="77.0" text="Calories 360">
+                        <Label fx:id="hCalories" layoutX="-5.0" layoutY="77.0" text="Calories 360.0">
                            <font>
                               <Font name="Segoe UI Light" size="15.0" />
                            </font>
@@ -233,7 +233,7 @@
                               <Image url="@DashboardStatNutrition.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="2.0" layoutY="95.0" text="Protein 55g">
+                        <Label fx:id="hProtein" layoutX="-3.0" layoutY="95.0" text="Protein 55.0g">
                            <font>
                               <Font name="Segoe UI Light" size="15.0" />
                            </font>
@@ -251,7 +251,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutY="72.0" text="300 cal">
+                        <Label fx:id="hCaloriesBurned" layoutY="72.0" text="300 cal">
                            <font>
                               <Font name="Segoe UI Light" size="30.0" />
                            </font>
@@ -274,7 +274,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="1.0" layoutY="72.0" text="12/04/18">
+                        <Label fx:id="hLastMedicalCheck" layoutX="-9.0" layoutY="72.0" text="28/4/2018" textAlignment="CENTER">
                            <font>
                               <Font name="Segoe UI Light" size="30.0" />
                            </font>

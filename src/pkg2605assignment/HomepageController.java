@@ -3,6 +3,11 @@ package pkg2605assignment;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -46,6 +52,18 @@ public class HomepageController implements Initializable {
     private Button hbtnMindfulness;
     @FXML
     private Button hbtnSleep;
+    @FXML
+    private Label hwelcome;
+    @FXML
+    private Label hRestingHeartRate;
+    @FXML
+    private Label hCalories;
+    @FXML
+    private Label hProtein;
+    @FXML
+    private Label hCaloriesBurned;
+    @FXML
+    private Label hLastMedicalCheck;
 
     /**
      * Initializes the controller class.
@@ -53,9 +71,55 @@ public class HomepageController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            connect();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomepageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
+    public void connect() throws SQLException {
+       //create connection
+       Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+       System.out.println("DataBase connected");
+        
+        //create statement	
+        Statement st = conn.createStatement();
+        
+        //Welcome NAME
+        String nameQuery = "SELECT firstname FROM User;";
+        ResultSet nameResult = st.executeQuery(nameQuery);
+        hwelcome.setText("Welcome " + nameResult.getString(1) + ",");
+        
+        //Resting Heart Rate stats - 12/05/2018
+        String heartRateQuery = "SELECT averagecount FROM Restingheartrate WHERE date = '12/5/2018';";
+        ResultSet heartRateResult = st.executeQuery(heartRateQuery);
+        System.out.println(heartRateResult);
+        hRestingHeartRate.setText(heartRateResult.getString(1) + " BPM");
+        
+        //Nutrition stats - 12/05/2018
+        String nutritionQuery = "SELECT protein, calories FROM Food WHERE date = '12/5/2018';";
+        ResultSet nutritionResult = st.executeQuery(nutritionQuery);
+        System.out.println(nutritionResult);
+        hCalories.setText("Calories " + nutritionResult.getString(2));
+        hProtein.setText("Protein " + nutritionResult.getString(1) + "g");
+        
+        //Calories Burned stats - 12/05/2018
+        String caloriesBurnedQuery = "SELECT calories FROM Resistance WHERE date = '12/5/2018';";
+        ResultSet caloriesBurnedResult = st.executeQuery(caloriesBurnedQuery);
+        System.out.println(caloriesBurnedResult);
+        hCaloriesBurned.setText(caloriesBurnedResult.getString(1) + " cal");
+        
+        //Last Medical Check stats - 12/05/2018
+        String medicalCheckQuery = "SELECT date FROM Medical WHERE time > 1;";
+        ResultSet medicalCheckResult = st.executeQuery(medicalCheckQuery);
+        System.out.println(medicalCheckResult);
+        hLastMedicalCheck.setText(medicalCheckResult.getString(1));
+        
+        st.close();
+        conn.close();
+    }
+    
      @FXML
     private void switchDashboard(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
