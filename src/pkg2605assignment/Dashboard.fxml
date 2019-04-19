@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.DashboardController">
    <children>
-      <Label layoutX="27.0" layoutY="44.0" text="Welcome Name," textFill="#ff3b30">
+      <Label fx:id="welcome" layoutX="27.0" layoutY="44.0" text="Welcome Name," textFill="#ff3b30">
          <font>
             <Font size="30.0" />
          </font>
@@ -20,7 +20,7 @@
          <children>
             <AnchorPane>
                <children>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Activity">
+                  <Button fx:id="btnActivity" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchActivity" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Activity">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -34,7 +34,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Nutrition">
+                  <Button fx:id="btnNutrition" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchNutrition" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Nutrition">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -48,7 +48,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Mindfulness">
+                  <Button fx:id="btnMindfulness" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchMindfulness" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Mindfulness">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -62,7 +62,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Sleep">
+                  <Button fx:id="btnSleep" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchSleep" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Sleep">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -80,12 +80,12 @@
          <children>
             <AnchorPane layoutX="17.0" layoutY="10.0">
                <children>
-                  <Label alignment="CENTER" text="Resting Heart Rate">
+                  <Label alignment="CENTER" layoutY="2.0" text="Resting Heart Rate">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="5.0" layoutY="72.0" text="30 BPM">
+                  <Label fx:id="restingHeartRate" layoutX="5.0" layoutY="72.0" text="30 BPM">
                      <font>
                         <Font name="Segoe UI Light" size="30.0" />
                      </font>
@@ -103,14 +103,9 @@
          <children>
             <AnchorPane layoutX="32.0" layoutY="8.0">
                <children>
-                  <Label alignment="CENTER" layoutX="12.0" text="Nutrition">
+                  <Label alignment="CENTER" layoutX="12.0" layoutY="5.0" text="Nutrition">
                      <font>
                         <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutY="77.0" text="Calories 360">
-                     <font>
-                        <Font name="Segoe UI Light" size="15.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="47.0" fitWidth="70.0" layoutX="15.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
@@ -118,7 +113,12 @@
                         <Image url="@DashboardStatNutrition.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="2.0" layoutY="95.0" text="Protein 55g">
+                  <Label fx:id="calories" layoutX="-5.0" layoutY="75.0" text="Calories 360.0">
+                     <font>
+                        <Font name="Segoe UI Light" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="protein" layoutX="-3.0" layoutY="93.0" text="Protein 0.55g">
                      <font>
                         <Font name="Segoe UI Light" size="15.0" />
                      </font>
@@ -136,7 +136,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutY="72.0" text="300 cal">
+                  <Label fx:id="caloriesBurned" layoutY="72.0" text="300 cal">
                      <font>
                         <Font name="Segoe UI Light" size="30.0" />
                      </font>
@@ -159,7 +159,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="1.0" layoutY="72.0" text="12/04/18">
+                  <Label fx:id="lastMedicalCheck" layoutX="-9.0" layoutY="72.0" text="28/4/2018">
                      <font>
                         <Font name="Segoe UI Light" size="30.0" />
                      </font>
