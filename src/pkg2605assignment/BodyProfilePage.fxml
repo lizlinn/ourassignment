@@ -5,6 +5,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,7 +16,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Pane layoutX="33.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="25.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
             <Label layoutX="234.0" layoutY="2.0" text="160">
                <font>
@@ -39,7 +40,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="33.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="25.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
             <Label layoutX="234.0" layoutY="2.0" text="X">
                <font>
@@ -63,7 +64,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="380.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="370.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
             <Label layoutX="248.0" layoutY="2.0" text="52">
                <font>
@@ -87,7 +88,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="380.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="370.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
             <Label layoutX="234.0" layoutY="2.0" text="X">
                <font>
@@ -111,21 +112,25 @@
             </Label>
          </children>
       </Pane>
-      <LineChart fx:id="bmiLineChart" layoutX="33.0" layoutY="271.0" prefHeight="239.0" prefWidth="288.0" title="BMI">
-        <xAxis>
-          <CategoryAxis label="Date" side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis label="BMI" side="LEFT" />
-        </yAxis>
-      </LineChart>
-      <LineChart layoutX="380.0" layoutY="271.0" prefHeight="239.0" prefWidth="288.0" title="Lean and Fat Mass Ratio">
-         <xAxis>
-            <CategoryAxis label="Date" side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis label="Ratio" side="LEFT" />
-         </yAxis>
-      </LineChart>
+      <FlowPane layoutX="8.0" layoutY="265.0" prefHeight="272.0" prefWidth="687.0">
+         <children>
+            <LineChart fx:id="bmiChart" legendVisible="false" prefHeight="271.0" prefWidth="341.0" title="BMI">
+              <xAxis>
+                <CategoryAxis label="Date" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="BMI" side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <LineChart fx:id="leanFatChart" legendVisible="false" prefHeight="271.0" prefWidth="341.0" title="Lean and Fat Mass Ratio">
+               <xAxis>
+                  <CategoryAxis label="Date" side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis label="Ratio" side="LEFT" />
+               </yAxis>
+            </LineChart>
+         </children>
+      </FlowPane>
    </children>
 </AnchorPane>
