@@ -31,7 +31,7 @@ public class BodyProfilePageController implements Initializable {
         // TODO
     }
 
-    public static void printBMILineChart() throws SQLException {
+    /*public static void printBMILineChart() throws SQLException {
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:assignmentdata.db");
 

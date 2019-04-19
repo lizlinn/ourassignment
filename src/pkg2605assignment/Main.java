@@ -40,7 +40,7 @@ public class Main extends Application {
         
         stage.show();
         
-        BodyProfilePageController.printBMILineChart();
+        //BodyProfilePageController.printBMILineChart();
     }
 
     public static void main(String[] args) {
