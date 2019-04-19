@@ -45,7 +45,7 @@ public class MindfulnessController implements Initializable {
 
         
     }
-
+/*
     public static void printBarchart() throws SQLException {
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:assignmentdata.db");
@@ -81,5 +81,5 @@ public class MindfulnessController implements Initializable {
         conn.close();
 
     }
-
+*/
 }
