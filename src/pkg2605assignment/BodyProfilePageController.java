@@ -38,8 +38,8 @@ public class BodyProfilePageController implements Initializable {
     //private Label label;
     @FXML
     private LineChart<String, Double> bmiLineChart;
-    @FXML
-    private CategoryAxis bmiX;
+//    @FXML
+//    private CategoryAxis bmiX;
 //    @FXML
 //    private NumberAxis bmiY;
 //    @FXML
