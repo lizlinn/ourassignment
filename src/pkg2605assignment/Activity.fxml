@@ -13,18 +13,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="pkg2605assignment.ActivityController" >
+<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.ActivityController">
     <children>
-        <Label layoutX="242.0" layoutY="81.0" text="Walking/Running" textFill="#ff3b30">
-            <font>
-                <Font name="System Bold" size="17.0" />
-            </font>
-        </Label>
-        <Label layoutX="6.0" layoutY="81.0" text="Steps" textFill="#ff3b30">
-            <font>
-                <Font name="System Bold" size="17.0" />
-            </font>
-        </Label>
         <HBox layoutX="5.0" layoutY="1.0" prefHeight="26.0" prefWidth="245.0">
             <children>
                 <Label fx:id="stepGoalText" text="Name's Step Goal: ">
@@ -52,23 +42,29 @@
                 <Font name="System Italic" size="12.0" />
             </font>
         </Label> 
-      <FlowPane layoutY="55.0" prefHeight="228.0" prefWidth="483.0">
+      <FlowPane layoutY="76.0" prefHeight="222.0" prefWidth="483.0">
          <children>
-            <BarChart fx:id="walkRunChart" alternativeRowFillVisible="false" legendVisible="false" prefHeight="230.0" prefWidth="238.0" title="Walking/Running">
+            <BarChart fx:id="stepsChart" alternativeRowFillVisible="false" legendVisible="false" prefHeight="230.0" prefWidth="238.0" title="Steps">
               <xAxis>
                 <CategoryAxis label="Date" side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis label="Km" side="LEFT" />
+                <NumberAxis label="Steps" side="LEFT" />
               </yAxis>
+               <FlowPane.margin>
+                  <Insets top="10.0" />
+               </FlowPane.margin>
             </BarChart>
-            <BarChart fx:id="stepsChart" layoutX="10.0" layoutY="10.0" legendVisible="false" prefHeight="215.0" prefWidth="238.0" title="Steps">
+            <BarChart fx:id="walkRunChart" layoutX="10.0" layoutY="10.0" legendVisible="false" prefHeight="230.0" prefWidth="238.0" title="Walking/Running">
                <xAxis>
                   <CategoryAxis label="Date" side="BOTTOM" />
                </xAxis>
                <yAxis>
-                  <NumberAxis label="Steps" side="LEFT" />
+                  <NumberAxis label="Km" side="LEFT" />
                </yAxis>
+               <FlowPane.margin>
+                  <Insets top="10.0" />
+               </FlowPane.margin>
             </BarChart>
          </children>
       </FlowPane>
