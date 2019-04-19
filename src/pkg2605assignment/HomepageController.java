@@ -94,26 +94,22 @@ public class HomepageController implements Initializable {
         //Resting Heart Rate stats - 12/05/2018
         String heartRateQuery = "SELECT averagecount FROM Restingheartrate WHERE date = '12/5/2018';";
         ResultSet heartRateResult = st.executeQuery(heartRateQuery);
-        System.out.println(heartRateResult);
         hRestingHeartRate.setText(heartRateResult.getString(1) + " BPM");
         
         //Nutrition stats - 12/05/2018
         String nutritionQuery = "SELECT protein, calories FROM Food WHERE date = '12/5/2018';";
         ResultSet nutritionResult = st.executeQuery(nutritionQuery);
-        System.out.println(nutritionResult);
         hCalories.setText("Calories " + nutritionResult.getString(2));
         hProtein.setText("Protein " + nutritionResult.getString(1) + "g");
         
         //Calories Burned stats - 12/05/2018
         String caloriesBurnedQuery = "SELECT calories FROM Resistance WHERE date = '12/5/2018';";
         ResultSet caloriesBurnedResult = st.executeQuery(caloriesBurnedQuery);
-        System.out.println(caloriesBurnedResult);
         hCaloriesBurned.setText(caloriesBurnedResult.getString(1) + " cal");
         
         //Last Medical Check stats - 12/05/2018
         String medicalCheckQuery = "SELECT date FROM Medical WHERE time > 1;";
         ResultSet medicalCheckResult = st.executeQuery(medicalCheckQuery);
-        System.out.println(medicalCheckResult);
         hLastMedicalCheck.setText(medicalCheckResult.getString(1));
         
         st.close();

@@ -20,7 +20,7 @@
          <children>
             <AnchorPane>
                <children>
-                  <Button fx:id="btnActivity" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchActivity" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Activity">
+                  <Button fx:id="btnActivity" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchActivity" prefHeight="63.0" prefWidth="160.0" stylesheets="@dashboard.css" text="  Activity">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -34,7 +34,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Button fx:id="btnNutrition" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchNutrition" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Nutrition">
+                  <Button fx:id="btnNutrition" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchNutrition" prefHeight="63.0" prefWidth="160.0" stylesheets="@dashboard.css" text="  Nutrition">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -48,7 +48,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Button fx:id="btnMindfulness" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchMindfulness" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Mindfulness">
+                  <Button fx:id="btnMindfulness" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchMindfulness" prefHeight="63.0" prefWidth="160.0" stylesheets="@dashboard.css" text="  Mindfulness">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -62,7 +62,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <Button fx:id="btnSleep" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchSleep" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Sleep">
+                  <Button fx:id="btnSleep" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#switchSleep" prefHeight="63.0" prefWidth="160.0" stylesheets="@dashboard.css" text="  Sleep">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

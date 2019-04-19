@@ -135,7 +135,7 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="hbtnActivity" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#hswitchActivity" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Activity">
+                        <Button fx:id="hbtnActivity" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#hswitchActivity" prefHeight="63.0" prefWidth="160.0" stylesheets="@dashboard.css" text="  Activity">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -149,7 +149,7 @@
                   </AnchorPane>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="hbtnNutrition" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#hswitchNutrition" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Nutrition">
+                        <Button fx:id="hbtnNutrition" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#hswitchNutrition" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" stylesheets="@dashboard.css" text="  Nutrition">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -163,7 +163,7 @@
                   </AnchorPane>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="hbtnMindfulness" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#hswitchMindfulness" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Mindfulness">
+                        <Button fx:id="hbtnMindfulness" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#hswitchMindfulness" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" stylesheets="@dashboard.css" text="  Mindfulness">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -177,7 +177,7 @@
                   </AnchorPane>
                   <AnchorPane>
                      <children>
-                        <Button fx:id="hbtnSleep" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#hswitchSleep" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" text="  Sleep">
+                        <Button fx:id="hbtnSleep" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#hswitchSleep" prefHeight="63.0" prefWidth="160.0" style="-fx-background-color: F8E5E2;" stylesheets="@dashboard.css" text="  Sleep">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
