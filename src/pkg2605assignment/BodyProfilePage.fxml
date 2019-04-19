@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" >
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.BodyProfilePageController">
    <children>
       <Label layoutX="27.0" layoutY="44.0" text="Name's Body Profile" textFill="#ff3b30">
          <font>
@@ -39,7 +39,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="33.0" layoutY="179.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="33.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
             <Label layoutX="234.0" layoutY="2.0" text="X">
                <font>
@@ -63,7 +63,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="332.0" layoutY="132.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="380.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
             <Label layoutX="248.0" layoutY="2.0" text="52">
                <font>
@@ -87,7 +87,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="380.0" layoutY="179.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+      <Pane layoutX="380.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
             <Label layoutX="234.0" layoutY="2.0" text="X">
                <font>
@@ -111,7 +111,7 @@
             </Label>
          </children>
       </Pane>
-      <LineChart layoutX="46.0" layoutY="289.0" prefHeight="239.0" prefWidth="288.0">
+      <LineChart fx:id="bmiLineChart" layoutX="33.0" layoutY="271.0" prefHeight="239.0" prefWidth="288.0" title="BMI">
         <xAxis>
           <CategoryAxis label="Date" side="BOTTOM" />
         </xAxis>
@@ -119,7 +119,7 @@
           <NumberAxis label="BMI" side="LEFT" />
         </yAxis>
       </LineChart>
-      <LineChart layoutX="388.0" layoutY="289.0" prefHeight="239.0" prefWidth="288.0">
+      <LineChart layoutX="380.0" layoutY="271.0" prefHeight="239.0" prefWidth="288.0" title="Lean and Fat Mass Ratio">
          <xAxis>
             <CategoryAxis label="Date" side="BOTTOM" />
          </xAxis>
