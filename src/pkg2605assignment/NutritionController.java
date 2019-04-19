@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
  */
 public class NutritionController implements Initializable {
 
+
     /**
      * Initializes the controller class.
      */

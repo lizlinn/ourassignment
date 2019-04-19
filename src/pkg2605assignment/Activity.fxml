@@ -18,7 +18,7 @@
                 <NumberAxis label="Km" side="LEFT" />
               </yAxis>
             </BarChart>
-            <BarChart fx:id="stepsChart" layoutX="10.0" layoutY="10.0" legendVisible="false" prefHeight="215.0" prefWidth="238.0" title="Steps Taken">
+            <BarChart fx:id="stepsChart" layoutX="10.0" layoutY="10.0" legendVisible="false" prefHeight="215.0" prefWidth="238.0" title="Steps">
                <xAxis>
                   <CategoryAxis label="Date" side="BOTTOM" />
                </xAxis>

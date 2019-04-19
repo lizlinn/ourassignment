@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,6 +22,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 
 /**
  * FXML Controller class
@@ -28,8 +31,8 @@ import javafx.scene.chart.PieChart;
  */
 public class MindfulnessController implements Initializable {
 
-   @FXML
-    private PieChart chart;
+@FXML
+private BarChart<String, Double> mindfulChart;
 
     /**
      * Initializes the controller class.
@@ -37,16 +40,54 @@ public class MindfulnessController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+    try {
+        loadMindfulChart();
+    } catch (SQLException ex) {
+        Logger.getLogger(MindfulnessController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+                
         
-       ObservableList<PieChart.Data> pieChartData =
-            FXCollections.observableArrayList(
-            new PieChart.Data("Executed", 60),
-            new PieChart.Data("Passed", 25),
-            new PieChart.Data("Fails", 15));
-
- chart.setData(pieChartData);
-
+        /*
+        ObservableList<PieChart.Data> pieChartData =
+        FXCollections.observableArrayList(
+        new PieChart.Data("Executed", 60),
+        new PieChart.Data("Passed", 25),
+        new PieChart.Data("Fails", 15));
         
+        chart.setData(pieChartData);
+    */
+    }
+    
+    //Load mindfullness bar chart with database
+    public void loadMindfulChart() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, mindfulminutes from Mentalwellbeing WHERE date >= '6/5/2018';";
+
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+                System.out.println(rs.getString(1));
+                System.out.println(rs.getDouble(2));
+
+            }
+            mindfulChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
     }
     
     /*private double getMindfulnessMins(Mindful_Mins mindfulmins) throws SQLException {
