@@ -288,6 +288,7 @@
                   </AnchorPane>
                </children>
             </Pane>
+            <AnchorPane fx:id="dashboardHolderPane" layoutX="208.0" layoutY="98.0" prefHeight="285.0" prefWidth="483.0" />
          </children>
       </AnchorPane>
    </children>

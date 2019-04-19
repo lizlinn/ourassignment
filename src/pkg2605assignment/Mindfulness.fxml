@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.MindfulnessController">
+<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="pkg2605assignment.MindfulnessController">
    <children>
       <Label layoutX="63.0" layoutY="85.0" prefHeight="33.0" prefWidth="158.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
          <font>

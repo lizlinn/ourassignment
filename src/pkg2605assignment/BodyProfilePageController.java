@@ -31,20 +31,20 @@ public class BodyProfilePageController implements Initializable {
         // TODO
     }
 
-    /*public static void printBMILineChart() throws SQLException {
+    //public static void printBMILineChart() throws SQLException {
         //create connection
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:assignmentdata.db");
+        //Connection conn = DriverManager.getConnection("jdbc:sqlite:assignmentdata.db");
 
         //create statement
-        Statement st = conn.createStatement();
+        //Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT BMI, Date FROM BMI (mass and height)";
+        //String selectQuery = "SELECT BMI, Date FROM BMI (mass and height)";
 
-        ResultSet rs = st.executeQuery(selectQuery);
+        //ResultSet rs = st.executeQuery(selectQuery);
         
-        st.close();
-        conn.close();
-    }
+       // st.close();
+        //conn.close();
+   // }
 
 }
