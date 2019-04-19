@@ -1,31 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.MindfulnessController">
+<AnchorPane id="AnchorPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.MindfulnessController">
    <children>
-      <Label layoutX="63.0" layoutY="85.0" prefHeight="26.0" prefWidth="104.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
+      <Label layoutX="63.0" layoutY="85.0" prefHeight="33.0" prefWidth="158.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="63.0" layoutY="104.0" prefHeight="26.0" prefWidth="141.0" text="Make it a habit." textAlignment="CENTER" textFill="#ff3b30">
+      <Label layoutX="63.0" layoutY="104.0" prefHeight="41.0" prefWidth="163.0" text="Make it a habit." textAlignment="CENTER" textFill="#ff3b30">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <BarChart fx:id="mindfulnessweek" layoutX="388.0" layoutY="107.0" prefHeight="245.0" prefWidth="499.0" title="Mindfulness Minutes">
-        <xAxis>
-          <CategoryAxis fx:id="weekdate" label="Date" side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="weekminutes" label="Minutes" side="LEFT" />
-        </yAxis>
-      </BarChart>
+      <PieChart fx:id="chart" layoutX="259.0" prefHeight="372.0" prefWidth="419.0" />
    </children>
 </AnchorPane>

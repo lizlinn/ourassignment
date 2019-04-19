@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 
 /**
  * FXML Controller class
@@ -27,22 +28,31 @@ import javafx.scene.chart.NumberAxis;
  */
 public class MindfulnessController implements Initializable {
 
-    @FXML
-    private BarChart<String, String> mindfulnessweek;
-
-    @FXML
-    private CategoryAxis weekdate;
-
-    @FXML
-    private NumberAxis weekminutes;
+   @FXML
+    private PieChart chart;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        
+       ObservableList<PieChart.Data> pieChartData =
+            FXCollections.observableArrayList(
+            new PieChart.Data("Executed", 60),
+            new PieChart.Data("Passed", 25),
+            new PieChart.Data("Fails", 15));
 
+ chart.setData(pieChartData);
+
+        
+    }
+    
+    /*private double getMindfulnessMins(Mindful_Mins mindfulmins) throws SQLException {
+        
+        double totalTime = 0;
+        String query = "SELECT"
         
     }
 /*
