@@ -34,17 +34,11 @@ import javafx.scene.control.Label;
  */
 public class BodyProfilePageController implements Initializable {
 
-    //@FXML
-    //private Label label;
     @FXML
-    private LineChart<String, Double> bmiLineChart;
-//    @FXML
-//    private CategoryAxis bmiX;
-//    @FXML
-//    private NumberAxis bmiY;
-//    @FXML
-//    private Button bmiLoad;
-//    private Connection dbConnect;
+    private LineChart<String, Double> bmiChart;
+    @FXML
+    private LineChart<String, Double> leanFatChart;
+
 
     /**
      * Initializes the controller class.
@@ -52,13 +46,16 @@ public class BodyProfilePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            bmiChart();
+            loadBmiChart();
+            loadLeanFatChart();
         } catch (SQLException ex) {
             Logger.getLogger(BodyProfilePageController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void bmiChart() throws SQLException {
+    //Load bmi line chart with database
+    public void loadBmiChart() throws SQLException {
+        
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
@@ -66,21 +63,52 @@ public class BodyProfilePageController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, BMI FROM BMI;";
+        String selectQuery = "SELECT date, BMI FROM BMI WHERE date >= '29/4/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
-
+        
+        //Populate chart
         try {
             ResultSet rs = st.executeQuery(selectQuery);
-            //System.out.println(rs.getString(1)); 
             while (rs.next()) {
                 series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
                 System.out.println(rs.getString(1));
                 System.out.println(rs.getDouble(2));
 
             }
-            bmiLineChart.getData().add(series);
-            //System.out.println("series added");
+            bmiChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+    
+    //Load lean fat mass ratio line chart with database 
+    public void loadLeanFatChart() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, ratio FROM Leanfatmass WHERE date >= '29/4/2018';";
+
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        
+        //Populate Chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+                System.out.println(rs.getString(1));
+                System.out.println(rs.getDouble(2));
+
+            }
+            leanFatChart.getData().add(series);
         } catch (Exception e) {
 
         }
@@ -89,30 +117,4 @@ public class BodyProfilePageController implements Initializable {
         conn.close();
     }
 
-
-/* Youtube Tutorial Way
-    private void bmiLoadChart() throws SQLException{
-        String selectQuery = "SELECT BMI, date FROM BMI";
-        XYChart.Series<String, Double> series = new XYChart.Series<>();
-        try{
-            dbConnect = connection();
-            ResultSet rs = dbConnect.createStatement().executeQuery(selectQuery);
-            while(rs.next()){
-                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
-                
-            }
-            bmiLineChart.getData().add(series);
-        } catch (Exception e){
-            
-        }
-    }
-    
-    
-    
-    //Database connection
-    private Connection connection() throws SQLException{
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
-        return null;
-    }
-*/
 }

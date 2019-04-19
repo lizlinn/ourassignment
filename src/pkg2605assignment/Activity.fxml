@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 
-
-<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/">
+<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.ActivityController">
    <children>
-      <Label layoutX="164.0" layoutY="107.0" text="Activity" />
+      <FlowPane layoutY="55.0" prefHeight="228.0" prefWidth="483.0">
+         <children>
+            <BarChart fx:id="walkRunChart" alternativeRowFillVisible="false" legendVisible="false" prefHeight="230.0" prefWidth="238.0" title="Walking/Running">
+              <xAxis>
+                <CategoryAxis label="Date" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Km" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <BarChart fx:id="stepsChart" layoutX="10.0" layoutY="10.0" legendVisible="false" prefHeight="215.0" prefWidth="238.0" title="Steps Taken">
+               <xAxis>
+                  <CategoryAxis label="Date" side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis label="Steps" side="LEFT" />
+               </yAxis>
+            </BarChart>
+         </children>
+      </FlowPane>
    </children>
 </AnchorPane>
