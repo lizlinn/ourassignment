@@ -1,11 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/">
+<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.NutritionController">
    <children>
-      <Label layoutX="196.0" layoutY="108.0" text="Nutrition" />
+      <VBox layoutX="22.0" layoutY="70.0" prefHeight="78.0" prefWidth="114.0">
+         <children>
+            <Label fx:id="food" prefHeight="51.0" prefWidth="62.0" text="279">
+               <font>
+                  <Font name="Segoe UI Light" size="35.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Food">
+               <VBox.margin>
+                  <Insets left="43.0" right="30.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="350.0" layoutY="70.0" prefHeight="78.0" prefWidth="114.0">
+         <children>
+            <Label fx:id="exercise" prefHeight="45.0" prefWidth="60.0" text="279">
+               <font>
+                  <Font name="Segoe UI Light" size="35.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="50.0" text="Exercise">
+               <VBox.margin>
+                  <Insets left="34.0" right="30.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="15.0" layoutY="210.0" prefHeight="61.0" prefWidth="126.0">
+         <children>
+            <Label text="Carbs">
+               <VBox.margin>
+                  <Insets left="48.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ProgressBar fx:id="carbsBar" prefHeight="8.0" prefWidth="111.0" progress="0.0">
+               <VBox.margin>
+                  <Insets left="8.0" />
+               </VBox.margin>
+            </ProgressBar>
+            <Label fx:id="carbsStatus" text="0.35 / 204 g">
+               <VBox.margin>
+                  <Insets left="32.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="180.0" layoutY="210.0" prefHeight="61.0" prefWidth="126.0">
+         <children>
+            <Label text="Protein">
+               <VBox.margin>
+                  <Insets left="46.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ProgressBar fx:id="proteinBar" prefHeight="8.0" prefWidth="111.0" progress="0.0">
+               <VBox.margin>
+                  <Insets left="8.0" />
+               </VBox.margin>
+            </ProgressBar>
+            <Label fx:id="proteinStatus" text="0.35 / 82 g">
+               <VBox.margin>
+                  <Insets left="35.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="342.0" layoutY="210.0" prefHeight="61.0" prefWidth="126.0">
+         <children>
+            <Label text="Fat">
+               <VBox.margin>
+                  <Insets left="57.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ProgressBar fx:id="fatBar" prefHeight="8.0" prefWidth="111.0" progress="0.0">
+               <VBox.margin>
+                  <Insets left="8.0" />
+               </VBox.margin>
+            </ProgressBar>
+            <Label fx:id="fatStatus" text="0.35 / 54 g">
+               <VBox.margin>
+                  <Insets left="35.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <ProgressIndicator fx:id="ringProgressIndicator" layoutX="149.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="172.0" prefWidth="189.0" progress="0.0" stylesheets="@nutrition.css" />
    </children>
 </AnchorPane>
