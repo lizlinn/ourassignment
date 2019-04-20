@@ -3,9 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/elizabethlin/Documents/UNI/2019/INFS2605/ourassignment/src/pkg2605assignment/Main.java</file>
-            <file>file:/Users/elizabethlin/Documents/UNI/2019/INFS2605/ourassignment/src/pkg2605assignment/ActivityController.java</file>
-            <file>file:/Users/elizabethlin/Documents/UNI/2019/INFS2605/ourassignment/src/pkg2605assignment/MindfulnessController.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/FXMLDocumentController.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/BodyProfilePage.fxml</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/BodyProfilePageController.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/HomepageController.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/Body%20Profile.png</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/ActivityController.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/Dashboard.png</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/Main.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/SleepController.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/Activity.fxml</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/NutritionController.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/HealthRecordsPageController.java</file>
+            <file>file:/Users/michellexu/Documents/UNI/T1%202019/INFS2605/ourassignment/src/pkg2605assignment/MindfulnessController.java</file>
         </group>
     </open-files>
 </project-private>
