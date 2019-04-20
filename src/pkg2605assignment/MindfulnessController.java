@@ -171,9 +171,9 @@ public class MindfulnessController implements Initializable {
         }
     }
         
-        /*@FXML
+        @FXML
     void addUserInput(ActionEvent event) throws SQLException {
-        String addinput = userinput.getText();
+        /*String addinput = userinput.getText();
         double parseInput = Double.parseDouble(addinput);
         
         //create connection
@@ -185,11 +185,11 @@ public class MindfulnessController implements Initializable {
         pst.executeUpdate();
 
         connect();
-        
+        */
         
 
     }
 
-*/
+
 
 }
