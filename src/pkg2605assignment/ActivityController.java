@@ -36,6 +36,8 @@ public class ActivityController implements Initializable {
     private Label stepStatus;
     @FXML
     private Label stepGoalText;
+    @FXML
+    private Label errormessage;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,7 +61,7 @@ public class ActivityController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, km from Aerobic WHERE date >= '6/5/2018';";
+        String selectQuery = "SELECT date, km from Aerobic WHERE date >= '1/5/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -91,7 +93,7 @@ public class ActivityController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, steptotal FROM Steps WHERE date >= '6/5/2018';";
+        String selectQuery = "SELECT date, steptotal FROM Steps WHERE date >= '1/5/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -127,7 +129,7 @@ public class ActivityController implements Initializable {
         stepGoalText.setText(nameResult.getString(1) + "'s Step Goal: ");
 
         //Step Goal Progress Bar
-        String stepQuery = "SELECT steptotal FROM Steps WHERE date = '12/5/2018';";
+        String stepQuery = "SELECT steptotal FROM Steps WHERE date = '7/5/2018';";
         ResultSet stepResult = st.executeQuery(stepQuery);
         double storeStepResult = stepResult.getDouble(1);
 
@@ -146,16 +148,27 @@ public class ActivityController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException {
         String setStep = sysInStepGoal.getText();
-        double parseStep = Double.parseDouble(setStep);
 
-        //create connection
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+        char ch = setStep.charAt(0);
+        int ascii = (int) ch;
 
-        //prepared statement	
-        String preparedSt = "UPDATE Goal SET stepgoal = '" + parseStep + "';";
-        PreparedStatement pst = conn.prepareStatement(preparedSt);
-        pst.executeUpdate();
+        //error
+        if (ascii > 31 && (ascii < 48 || ascii > 57)) {
 
-        connect();
+            errormessage.setText("Error! Please enter numbers only!");
+        } else {
+            double parseStep = Double.parseDouble(setStep);
+            errormessage.setText("");
+
+            //create connection
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+            //prepared statement	
+            String preparedSt = "UPDATE Goal SET stepgoal = '" + parseStep + "';";
+            PreparedStatement pst = conn.prepareStatement(preparedSt);
+            pst.executeUpdate();
+
+            connect();
+        }
     }
 }
