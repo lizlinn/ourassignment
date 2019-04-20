@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="788.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.HealthRecordReportController">
+    <stylesheets>
+        <URL value="@healthrecordreport.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="788.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="welcome" layoutX="24.0" layoutY="24.0" text="Name's Health Records" textFill="#ff3b30">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
