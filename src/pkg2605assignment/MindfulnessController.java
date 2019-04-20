@@ -56,6 +56,10 @@ public class MindfulnessController implements Initializable {
     
     @FXML
     private TextField userinput;
+    
+    @FXML
+    private TextField userinputdelete;
+
 
     
 
@@ -188,6 +192,25 @@ public class MindfulnessController implements Initializable {
         conn.close();
         
         
+
+    }
+    
+    @FXML
+    void deleteUserInput(ActionEvent event) throws SQLException {
+        
+        String deleteinput = userinputdelete.getText();
+        double parseDelete = Double.parseDouble(deleteinput);
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+        
+        //prepared statement	
+        String preparedState2 = "UPDATE Mentalwellbeing SET mindfulminutes = mindfulminutes - '" + parseDelete + "' WHERE date = '7/5/2018' ;";
+        PreparedStatement ps2 = conn.prepareStatement(preparedState2);
+        ps2.executeUpdate();
+
+        connect();
+        conn.close();
 
     }
 
