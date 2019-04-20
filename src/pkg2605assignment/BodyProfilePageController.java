@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
