@@ -2,9 +2,7 @@ package pkg2605assignment;
 
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +18,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 
 public class ActivityController implements Initializable {
@@ -30,15 +27,15 @@ public class ActivityController implements Initializable {
     @FXML
     private BarChart<String, Double> stepsChart;
     @FXML
-        private AnchorPane dashboardHolderPane;
+    private AnchorPane dashboardHolderPane;
     @FXML
-        private TextField sysInStepGoal;
+    private TextField sysInStepGoal;
     @FXML
-        private ProgressBar stepProgress;
+    private ProgressBar stepProgress;
     @FXML
-        private Label stepStatus;
+    private Label stepStatus;
     @FXML
-        private Label stepGoalText;
+    private Label stepGoalText;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -147,7 +144,7 @@ public class ActivityController implements Initializable {
     }
 
     @FXML
-        private void handleButtonAction(ActionEvent event) throws SQLException {
+    private void handleButtonAction(ActionEvent event) throws SQLException {
         String setStep = sysInStepGoal.getText();
         double parseStep = Double.parseDouble(setStep);
 
