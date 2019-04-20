@@ -30,15 +30,17 @@ public class ActivityController implements Initializable {
     @FXML
     private BarChart<String, Double> stepsChart;
     @FXML
-        private AnchorPane dashboardHolderPane;
+    private AnchorPane dashboardHolderPane;
     @FXML
-        private TextField sysInStepGoal;
+    private TextField sysInStepGoal;
     @FXML
-        private ProgressBar stepProgress;
+    private ProgressBar stepProgress;
     @FXML
-        private Label stepStatus;
+    private Label stepStatus;
     @FXML
-        private Label stepGoalText;
+    private Label stepGoalText;
+    @FXML
+    private Label errormessage;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -147,18 +149,29 @@ public class ActivityController implements Initializable {
     }
 
     @FXML
-        private void handleButtonAction(ActionEvent event) throws SQLException {
+    private void handleButtonAction(ActionEvent event) throws SQLException {
         String setStep = sysInStepGoal.getText();
-        double parseStep = Double.parseDouble(setStep);
 
-        //create connection
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+        char ch = setStep.charAt(0);
+        int ascii = (int) ch;
 
-        //prepared statement	
-        String preparedSt = "UPDATE Goal SET stepgoal = '" + parseStep + "';";
-        PreparedStatement pst = conn.prepareStatement(preparedSt);
-        pst.executeUpdate();
+        //error
+        if (ascii > 31 && (ascii < 48 || ascii > 57)) {
 
-        connect();
+            errormessage.setText("Error! Please enter numbers only!");
+        } else {
+            double parseStep = Double.parseDouble(setStep);
+            errormessage.setText("");
+
+            //create connection
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+            //prepared statement	
+            String preparedSt = "UPDATE Goal SET stepgoal = '" + parseStep + "';";
+            PreparedStatement pst = conn.prepareStatement(preparedSt);
+            pst.executeUpdate();
+
+            connect();
+        }
     }
 }
