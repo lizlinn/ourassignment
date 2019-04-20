@@ -115,7 +115,7 @@ public class MindfulnessController implements Initializable {
         mindfulGoalText.setText(nameResult.getString(1) + "'s Mindfulness Minutes Goal: ");
 
         //Mindfull Goal Progress Bar
-        String mindfulQuery = "SELECT mindfulminutes FROM Mentalwellbeing WHERE date = '1/5/2018';";
+        String mindfulQuery = "SELECT mindfulminutes FROM Mentalwellbeing WHERE date = '7/5/2018';";
         ResultSet mindfulResult = st.executeQuery(mindfulQuery);
         double storeMindfulResult = mindfulResult.getDouble(1);
 
