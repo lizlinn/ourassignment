@@ -11,14 +11,14 @@
 
 <AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="pkg2605assignment.BodyProfilePageController">
    <children>
-      <Label layoutX="27.0" layoutY="44.0" text="Name's Body Profile" textFill="#ff3b30">
+      <Label fx:id="bWelcome" layoutX="27.0" layoutY="44.0" text="Name's Body Profile" textFill="#ff3b30">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
       <Pane layoutX="25.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
-            <Label layoutX="234.0" layoutY="2.0" text="160">
+            <Label fx:id="bHeight" layoutX="234.0" layoutY="2.0" text="X m">
                <font>
                   <Font size="26.0" />
                </font>
@@ -28,12 +28,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="285.0" layoutY="12.0" text="cm">
-               <font>
-                  <Font name="Segoe UI Light" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="254.0" layoutY="35.0" text="12/4/2018">
+            <Label fx:id="bHeightDate" layoutX="254.0" layoutY="35.0" text="07/05/2018">
                <font>
                   <Font size="12.0" />
                </font>
@@ -42,7 +37,7 @@
       </Pane>
       <Pane layoutX="25.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
-            <Label layoutX="234.0" layoutY="2.0" text="X">
+            <Label fx:id="bBMI" layoutX="234.0" layoutY="2.0" text="X">
                <font>
                   <Font size="26.0" />
                </font>
@@ -52,12 +47,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="285.0" layoutY="12.0" text="cm">
-               <font>
-                  <Font name="Segoe UI Light" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="254.0" layoutY="35.0" text="12/4/2018">
+            <Label fx:id="bBMIDate" layoutX="254.0" layoutY="35.0" text="07/05/2018">
                <font>
                   <Font size="12.0" />
                </font>
@@ -66,7 +56,7 @@
       </Pane>
       <Pane layoutX="370.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
-            <Label layoutX="248.0" layoutY="2.0" text="52">
+            <Label fx:id="bWeight" layoutX="222.0" layoutY="3.0" text="X kg">
                <font>
                   <Font size="26.0" />
                </font>
@@ -76,12 +66,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="285.0" layoutY="12.0" text="kg">
-               <font>
-                  <Font name="Segoe UI Light" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="254.0" layoutY="35.0" text="12/4/2018">
+            <Label fx:id="bWeightDate" layoutX="254.0" layoutY="35.0" text="07/05/2018">
                <font>
                   <Font size="12.0" />
                </font>
@@ -90,22 +75,17 @@
       </Pane>
       <Pane layoutX="370.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
          <children>
-            <Label layoutX="234.0" layoutY="2.0" text="X">
+            <Label fx:id="bLeanFat" layoutX="234.0" layoutY="2.0" text="X">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Lean and Fat ">
+            <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Lean/Fat Ratio">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="285.0" layoutY="12.0" text="cm">
-               <font>
-                  <Font name="Segoe UI Light" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="254.0" layoutY="35.0" text="12/4/2018">
+            <Label fx:id="bLeanDate" layoutX="254.0" layoutY="35.0" text="07/05/2018">
                <font>
                   <Font size="12.0" />
                </font>

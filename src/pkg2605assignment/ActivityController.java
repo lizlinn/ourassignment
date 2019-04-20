@@ -162,6 +162,7 @@ public class ActivityController implements Initializable {
             pst.executeUpdate();
 
             connect();
+            conn.close();
         }
     }
 }
