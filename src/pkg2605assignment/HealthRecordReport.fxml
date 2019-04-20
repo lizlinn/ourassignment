@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="788.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.HealthRecordReportController">
+<AnchorPane id="AnchorPane" prefHeight="788.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.HealthRecordReportController">
     <stylesheets>
         <URL value="@healthrecordreport.css" />
     </stylesheets>
    <children>
       <Pane prefHeight="788.0" prefWidth="600.0">
          <children>
-            <Label fx:id="welcome" layoutX="24.0" layoutY="24.0" text="Name's Health Records" textFill="#ff3b30">
+            <Label fx:id="Welcome" layoutX="24.0" layoutY="24.0" text="Name's Health Report" textFill="#ff3b30">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Pane layoutX="24.0" layoutY="127.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
+            <Pane fx:id="Name" layoutX="24.0" layoutY="117.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
                <children>
                   <Label layoutX="179.0" layoutY="4.0" text="First Last" textAlignment="RIGHT">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Name">
@@ -33,16 +37,16 @@
                   </Label>
                </children>
             </Pane>
-            <Label layoutX="24.0" layoutY="87.0" prefHeight="23.0" prefWidth="546.0" style="-fx-background-color: ff3b30;" text=" General Information" textFill="WHITE">
+            <Label layoutX="24.0" layoutY="77.0" prefHeight="23.0" prefWidth="546.0" style="-fx-background-color: ff3b30;" text=" General Information" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Pane layoutX="305.0" layoutY="127.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
+            <Pane layoutX="305.0" layoutY="117.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
                <children>
-                  <Label layoutX="179.0" layoutY="4.0" text="X years" textAlignment="RIGHT">
+                  <Label fx:id="Age" layoutX="179.0" layoutY="4.0" text="X years" textAlignment="RIGHT">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Age">
@@ -52,11 +56,11 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="24.0" layoutY="165.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
+            <Pane layoutX="24.0" layoutY="155.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
                <children>
-                  <Label layoutX="179.0" layoutY="4.0" prefHeight="18.0" prefWidth="61.0" text="X years">
+                  <Label fx:id="Height" layoutX="179.0" layoutY="4.0" prefHeight="18.0" prefWidth="61.0" text="X years">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Height" textAlignment="RIGHT">
@@ -66,11 +70,11 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="305.0" layoutY="165.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
+            <Pane layoutX="305.0" layoutY="155.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
                <children>
-                  <Label layoutX="179.0" layoutY="4.0" prefHeight="18.0" prefWidth="61.0" text="X kg" textAlignment="RIGHT">
+                  <Label fx:id="Weight" layoutX="179.0" layoutY="4.0" prefHeight="18.0" prefWidth="61.0" text="X kg" textAlignment="RIGHT">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Weight">
@@ -80,17 +84,108 @@
                   </Label>
                </children>
             </Pane>
-            <Label layoutX="24.0" layoutY="210.0" prefHeight="23.0" prefWidth="546.0" style="-fx-background-color: ff3b30;" text=" Lifestyle" textFill="WHITE">
+            <Label layoutX="24.0" layoutY="200.0" prefHeight="23.0" prefWidth="546.0" style="-fx-background-color: ff3b30;" text=" Lifestyle" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="633.0" prefHeight="23.0" prefWidth="546.0" style="-fx-background-color: ff3b30;" text=" Medical Checkup History" textFill="WHITE">
+            <Label layoutX="24.0" layoutY="604.0" prefHeight="23.0" prefWidth="546.0" style="-fx-background-color: ff3b30;" text=" Most Recent Medical Checkups" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <FlowPane layoutX="6.0" layoutY="270.0" prefHeight="162.0" prefWidth="594.0" />
+            <FlowPane layoutX="8.0" layoutY="231.0" prefHeight="357.0" prefWidth="594.0">
+               <children>
+                  <BarChart fx:id="gymChart" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="190.0" title="Gym Attendance">
+                    <xAxis>
+                      <CategoryAxis label="Date" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="Attendance" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <BarChart fx:id="walkRunChart" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="190.0" title="Walking/Running">
+                     <xAxis>
+                        <CategoryAxis label="Date" side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis label="Km" side="LEFT" />
+                     </yAxis>
+                  </BarChart>
+                  <BarChart fx:id="stairsChart" layoutX="200.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="196.0" title="Stairs">
+                     <xAxis>
+                        <CategoryAxis label="Date" side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis label="Flights" side="LEFT" />
+                     </yAxis>
+                  </BarChart>
+                  <LineChart fx:id="sleepChart" prefHeight="178.0" prefWidth="571.0" title="Sleep">
+                    <xAxis>
+                      <CategoryAxis label="Date" prefHeight="18.0" prefWidth="491.0" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="Hours" side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+            </FlowPane>
+            <Pane layoutX="24.0" layoutY="641.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
+               <children>
+                  <Label fx:id="gpDate" layoutX="179.0" layoutY="4.0" text="N/A" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="GP">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="305.0" layoutY="641.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
+               <children>
+                  <Label fx:id="optomDate" layoutX="179.0" layoutY="4.0" text="N/A" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Optometrist">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="24.0" layoutY="680.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
+               <children>
+                  <Label fx:id="dentistDate" layoutX="179.0" layoutY="4.0" text="N/A" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Dentist">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="305.0" layoutY="680.0" prefHeight="29.0" prefWidth="265.0" style="-fx-background-color: F8E5E2;">
+               <children>
+                  <Label fx:id="otherDate" layoutX="179.0" layoutY="4.0" text="N/A" textAlignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Other">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
