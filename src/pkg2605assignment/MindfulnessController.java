@@ -50,6 +50,9 @@ public class MindfulnessController implements Initializable {
 
     @FXML
     private Label mindfulStatus;
+    
+    @FXML
+    private Label errormessage;
 
     /**
      * Initializes the controller class.
@@ -131,10 +134,27 @@ public class MindfulnessController implements Initializable {
     @FXML
         private void handleButtonAction(ActionEvent event) throws SQLException {
         String setMind = sysInMindfulGoal.getText();
+        
+        char ch = setMind.charAt(0);
+        int ascii = (int) ch;
+        
+        //error
+        if (ascii > 31 && (ascii < 48 || ascii > 57)) {
+            
+            errormessage.setText("Error! Please enter numbers only!");
+        }
+        
+        else{
         double parseMind = Double.parseDouble(setMind);
-
+        
+        errormessage.setText("");
+       
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+        
+        
+        
+        
 
         //prepared statement	
         String preparedSt = "UPDATE Goal SET mindfulgoal = '" + parseMind + "';";
@@ -142,6 +162,7 @@ public class MindfulnessController implements Initializable {
         pst.executeUpdate();
 
         connect();
+        }
     }
 
 }
