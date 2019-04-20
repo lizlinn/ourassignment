@@ -59,6 +59,7 @@ public class MindfulnessController implements Initializable {
 
         try {
             loadMindfulChart();
+            connect();
         } catch (SQLException ex) {
             Logger.getLogger(MindfulnessController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -110,7 +111,7 @@ public class MindfulnessController implements Initializable {
         ResultSet nameResult = st.executeQuery(nameQuery);
         mindfulGoalText.setText(nameResult.getString(1) + "'s Mindfulness Minutes Goal: ");
 
-        //Step Goal Progress Bar
+        //Mindfull Goal Progress Bar
         String mindfulQuery = "SELECT mindfulminutes FROM Mentalwellbeing WHERE date = '12/5/2018';";
         ResultSet mindfulResult = st.executeQuery(mindfulQuery);
         double storeMindfulResult = mindfulResult.getDouble(1);
@@ -119,7 +120,7 @@ public class MindfulnessController implements Initializable {
         ResultSet goalMindResult = st.executeQuery(goalMindQuery);
         double storeGoalMindResult = goalMindResult.getDouble(1);
 
-        mindfulStatus.setText((int) storeMindfulResult + " out of " + (int) storeGoalMindResult + " steps completed");
+        mindfulStatus.setText((int) storeMindfulResult + " out of " + (int) storeGoalMindResult + " minutes completed");
         mindfulProgress.setProgress((storeMindfulResult / storeGoalMindResult));
         mindfulProgress.setStyle("-fx-accent: #FF3B30;");
 
