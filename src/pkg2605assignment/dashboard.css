@@ -15,6 +15,9 @@
 .button:pressed {
     -fx-background-color: #E0BAB9;
 }
+.button:selected{
+     -fx-background-color: #E0BAB9;
+}
 .button:focus {
     -fx-background-color: #E0BAB9;
 }

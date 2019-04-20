@@ -116,7 +116,15 @@ public class MindfulnessController implements Initializable {
 
         mindfulStatus.setText((int) storeMindfulResult + " out of " + (int) storeGoalMindResult + " minutes completed");
         mindfulProgress.setProgress((storeMindfulResult / storeGoalMindResult));
-        mindfulProgress.setStyle("-fx-accent: #FF3B30;");
+        
+        //Colour ratings
+        if (storeMindfulResult / storeGoalMindResult < 0.5) {
+            mindfulProgress.setStyle("-fx-accent: #FF3B30;");
+        } else if ((storeMindfulResult / storeGoalMindResult > 0.5) && (storeMindfulResult / storeGoalMindResult < 1.0)) {
+            mindfulProgress.setStyle("-fx-accent: #FF9933;");
+        } else {
+            mindfulProgress.setStyle("-fx-accent: #4D9900;");
+        }
 
         st.close();
         conn.close();

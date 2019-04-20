@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -35,6 +34,14 @@ public class DashboardController implements Initializable {
     private Label caloriesBurned;
     @FXML
     private Label lastMedicalCheck;
+    @FXML
+    private Button btnActivity;
+    @FXML
+    private Button btnNutrition;
+    @FXML
+    private Button btnMindfulness;
+    @FXML
+    private Button btnSleep;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -154,24 +161,40 @@ public class DashboardController implements Initializable {
     private void switchActivity(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Activity.fxml"));
         dashboardHolderPane.getChildren().setAll(pane);
+        btnActivity.setStyle("-fx-background-color: #E0BAB9");
+        btnNutrition.setStyle("-fx-background-color: #F8E5E2");
+        btnMindfulness.setStyle("-fx-background-color: #F8E5E2");
+        btnSleep.setStyle("-fx-background-color: #F8E5E2");
     }
 
     @FXML
     private void switchNutrition(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Nutrition.fxml"));
         dashboardHolderPane.getChildren().setAll(pane);
+        btnActivity.setStyle("-fx-background-color: #F8E5E2");
+        btnNutrition.setStyle("-fx-background-color: #E0BAB9");
+        btnMindfulness.setStyle("-fx-background-color: #F8E5E2");
+        btnSleep.setStyle("-fx-background-color: #F8E5E2");
     }
 
     @FXML
     private void switchMindfulness(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Mindfulness.fxml"));
         dashboardHolderPane.getChildren().setAll(pane);
+        btnActivity.setStyle("-fx-background-color: #F8E5E2");
+        btnNutrition.setStyle("-fx-background-color: #F8E5E2");
+        btnMindfulness.setStyle("-fx-background-color: #E0BAB9");
+        btnSleep.setStyle("-fx-background-color: #F8E5E2");
     }
 
     @FXML
     private void switchSleep(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Sleep.fxml"));
         dashboardHolderPane.getChildren().setAll(pane);
+        btnActivity.setStyle("-fx-background-color: #F8E5E2");
+        btnNutrition.setStyle("-fx-background-color: #F8E5E2");
+        btnMindfulness.setStyle("-fx-background-color: #F8E5E2");
+        btnSleep.setStyle("-fx-background-color: #E0BAB9");
     }
 
 }

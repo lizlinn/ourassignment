@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
@@ -22,10 +21,10 @@ import javafx.scene.control.TextField;
 
 public class SleepController implements Initializable {
 
-@FXML
-private LineChart<String, Double> sleepChart;
+    @FXML
+    private LineChart<String, Double> sleepChart;
 
-@FXML
+    @FXML
     private Label sleepGoalText;
 
     @FXML
@@ -40,25 +39,20 @@ private LineChart<String, Double> sleepChart;
     @FXML
     private Label errormessage;
 
-    
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    try {
-        // TODO
-        loadSleepChart();
-        connect();
-    } catch (SQLException ex) {
-        Logger.getLogger(SleepController.class.getName()).log(Level.SEVERE, null, ex);
+        try {
+            // TODO
+            loadSleepChart();
+            connect();
+        } catch (SQLException ex) {
+            Logger.getLogger(SleepController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    }    
-    
-    
+
     //Load sleep line chart with database 
     public void loadSleepChart() throws SQLException {
-        
+
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
@@ -69,7 +63,7 @@ private LineChart<String, Double> sleepChart;
         String selectQuery = "SELECT date, hoursasleep FROM Sleep WHERE date >= '1/4/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
-        
+
         //Populate Chart
         try {
             ResultSet rs = st.executeQuery(selectQuery);
@@ -84,8 +78,7 @@ private LineChart<String, Double> sleepChart;
         st.close();
         conn.close();
     }
-    
-    
+
     public void connect() throws SQLException {
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
@@ -97,7 +90,7 @@ private LineChart<String, Double> sleepChart;
         //User name
         String nameQuery = "SELECT firstname FROM User;";
         ResultSet nameResult = st.executeQuery(nameQuery);
-       sleepGoalText.setText(nameResult.getString(1) + "'s Sleep Goal (hours): ");
+        sleepGoalText.setText(nameResult.getString(1) + "'s Sleep Goal (hours): ");
 
         //Mindfull Goal Progress Bar
         String sleepQuery = "SELECT hoursasleep FROM Sleep WHERE date = '7/5/2018';";
@@ -110,15 +103,23 @@ private LineChart<String, Double> sleepChart;
 
         sleepStatus.setText((int) storeSleepResult + " out of " + (int) storeGoalSleepResult + " hours");
         sleepProgress.setProgress((storeSleepResult / storeGoalSleepResult));
-        sleepProgress.setStyle("-fx-accent: #FF3B30;");
-
+        
+        //Colour ratings
+        if (storeSleepResult / storeGoalSleepResult < 0.5) {
+            sleepProgress.setStyle("-fx-accent: #FF3B30;");
+        } else if ((storeSleepResult / storeGoalSleepResult > 0.5) && (storeSleepResult / storeGoalSleepResult < 1.0)) {
+            sleepProgress.setStyle("-fx-accent: #FF9933;");
+        } else {
+            sleepProgress.setStyle("-fx-accent: #4D9900;");
+        }
+       
         st.close();
         conn.close();
     }
-    
+
     @FXML
     void handleButtonAction(ActionEvent event) throws SQLException {
-        
+
         String setSleep = sysInSleepGoal.getText();
 
         char ch = setSleep.charAt(0);
