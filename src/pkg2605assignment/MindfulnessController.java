@@ -8,6 +8,7 @@ package pkg2605assignment;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
@@ -23,6 +25,9 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -31,36 +36,38 @@ import javafx.scene.chart.XYChart;
  */
 public class MindfulnessController implements Initializable {
 
-@FXML
-private BarChart<String, Double> mindfulChart;
+    @FXML
+    private BarChart<String, Double> mindfulChart;
+    
+    @FXML
+    private Label mindfulGoalText;
+
+    @FXML
+    private TextField sysInMindfulGoal;
+
+    @FXML
+    private ProgressBar mindfulProgress;
+
+    @FXML
+    private Label mindfulStatus;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    try {
-        loadMindfulChart();
-    } catch (SQLException ex) {
-        Logger.getLogger(MindfulnessController.class.getName()).log(Level.SEVERE, null, ex);
+
+        try {
+            loadMindfulChart();
+        } catch (SQLException ex) {
+            Logger.getLogger(MindfulnessController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-                
-        
-        /*
-        ObservableList<PieChart.Data> pieChartData =
-        FXCollections.observableArrayList(
-        new PieChart.Data("Executed", 60),
-        new PieChart.Data("Passed", 25),
-        new PieChart.Data("Fails", 15));
-        
-        chart.setData(pieChartData);
-    */
-    }
-    
+
     //Load mindfullness bar chart with database
     public void loadMindfulChart() throws SQLException {
-        
+
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
@@ -71,7 +78,7 @@ private BarChart<String, Double> mindfulChart;
         String selectQuery = "SELECT date, mindfulminutes from Mentalwellbeing WHERE date >= '6/5/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
-        
+
         //Populate chart
         try {
             ResultSet rs = st.executeQuery(selectQuery);
@@ -90,47 +97,50 @@ private BarChart<String, Double> mindfulChart;
         conn.close();
     }
     
-    /*private double getMindfulnessMins(Mindful_Mins mindfulmins) throws SQLException {
-        
-        double totalTime = 0;
-        String query = "SELECT"
-        
-    }
-/*
-    public static void printBarchart() throws SQLException {
+    public void connect() throws SQLException {
         //create connection
-        Connection conn = DriverManager.getConnection("jdbc:sqlite:assignmentdata.db");
-       
-        //create statement
-        Statement st = conn.createStatement();
-        
-        //System.out.println("Connected");
-        
-        String selectQuery = "SELECT ActivityDay, MindfulMinutes FROM Mental wellbeing;";
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+        System.out.println("DataBase connected");
 
-        ResultSet rs = st.executeQuery(selectQuery);
-        
-   
-        
-        while (rs.next()) {
-            ObservableList<BarChart> barChartData = FXCollections.observableArrayList();
-            
-            for (int i = 1; 1 < rs.getMetaData().getColumnCount(); i++) {
-                
-                barChartData.add(i);
-            }
-            
-            
-             
-        }
-                
-        mindfulnessweek.setItems(barChartData);
-        
-        
-        
+        //create statement	
+        Statement st = conn.createStatement();
+
+        //User name
+        String nameQuery = "SELECT firstname FROM User;";
+        ResultSet nameResult = st.executeQuery(nameQuery);
+        mindfulGoalText.setText(nameResult.getString(1) + "'s Mindfulness Minutes Goal: ");
+
+        //Step Goal Progress Bar
+        String mindfulQuery = "SELECT mindfulminutes FROM Mentalwellbeing WHERE date = '12/5/2018';";
+        ResultSet mindfulResult = st.executeQuery(mindfulQuery);
+        double storeMindfulResult = mindfulResult.getDouble(1);
+
+        String goalMindQuery = "SELECT mindfulgoal FROM Goal;";
+        ResultSet goalMindResult = st.executeQuery(goalMindQuery);
+        double storeGoalMindResult = goalMindResult.getDouble(1);
+
+        mindfulStatus.setText((int) storeMindfulResult + " out of " + (int) storeGoalMindResult + " steps completed");
+        mindfulProgress.setProgress((storeMindfulResult / storeGoalMindResult));
+        mindfulProgress.setStyle("-fx-accent: #FF3B30;");
+
         st.close();
         conn.close();
-
     }
-*/
+
+    @FXML
+        private void handleButtonAction(ActionEvent event) throws SQLException {
+        String setMind = sysInMindfulGoal.getText();
+        double parseMind = Double.parseDouble(setMind);
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //prepared statement	
+        String preparedSt = "UPDATE Goal SET mindfulgoal = '" + parseMind + "';";
+        PreparedStatement pst = conn.prepareStatement(preparedSt);
+        pst.executeUpdate();
+
+        connect();
+    }
+
 }
