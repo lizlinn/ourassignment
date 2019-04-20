@@ -29,7 +29,7 @@ public class HealthRecordsPageController implements Initializable {
     @FXML
     private void buttonAction(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HealthRecordReport.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HealthReport.fxml"));
             Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
