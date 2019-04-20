@@ -173,19 +173,20 @@ public class MindfulnessController implements Initializable {
         
         @FXML
     void addUserInput(ActionEvent event) throws SQLException {
-        /*String addinput = userinput.getText();
+        String addinput = userinput.getText();
         double parseInput = Double.parseDouble(addinput);
         
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
         
         //prepared statement	
-        String preparedSt = "UPDATE Goal SET mindfulgoal = '" + parseMind + "';";
-        PreparedStatement pst = conn.prepareStatement(preparedSt);
-        pst.executeUpdate();
+        String preparedState = "UPDATE Mentalwellbeing SET mindfulminutes = mindfulminutes + '" + parseInput + "' WHERE date = '7/5/2018' ;";
+        PreparedStatement ps = conn.prepareStatement(preparedState);
+        ps.executeUpdate();
 
         connect();
-        */
+        conn.close();
+        
         
 
     }
