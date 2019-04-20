@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="pkg2605assignment.DashboardController">
    <children>
       <Label fx:id="welcome" layoutX="27.0" layoutY="44.0" text="Welcome Name," textFill="#ff3b30">
          <font>
@@ -173,6 +173,13 @@
             </AnchorPane>
          </children>
       </Pane>
-      <AnchorPane fx:id="dashboardHolderPane" layoutX="208.0" layoutY="98.0" prefHeight="285.0" prefWidth="483.0" />
+      <AnchorPane fx:id="dashboardHolderPane" layoutX="208.0" layoutY="98.0" prefHeight="285.0" prefWidth="483.0">
+         <children>
+            <Label layoutX="92.0" layoutY="133.0" text="Choose from Activity, Nutrition, Mindfulness or Sleep!" textFill="#ff3b30">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

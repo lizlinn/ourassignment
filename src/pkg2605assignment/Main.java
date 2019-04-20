@@ -12,9 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Homepage.fxml"));
-        
         Scene scene = new Scene(root);
-     
         stage.setScene(scene);
         
         //Set icons on stage (side pane)
@@ -26,25 +24,11 @@ public class Main extends Application {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("Sign out.png")));
         stage.getIcons().add(new Image(getClass().getResourceAsStream("Need Help.png")));
         
-        //Set icons on stage (dashboard buttons)
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardButtonActivity.png")));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardButtonNutrition.png")));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardButtonMindfulness.png")));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardButtonSleep.png")));
-
-        //Set icons on stage (dashboard stats)
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardStatRestingHeartRate.png")));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardStatNutrition.png")));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardStatCaloriesBurned.png")));
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("DashboardStatLastMedicalCheck.png")));
-        
-        stage.show();
-        
+        stage.show();  
     }
 
     public static void main(String[] args) {
         launch(args);
-        
     }
     
 }

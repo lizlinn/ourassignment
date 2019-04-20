@@ -67,7 +67,7 @@
          <children>
             <Label text="Protein">
                <VBox.margin>
-                  <Insets left="46.0" right="10.0" top="10.0" />
+                  <Insets left="45.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Label>
             <ProgressBar fx:id="proteinBar" prefHeight="8.0" prefWidth="111.0" progress="0.0">

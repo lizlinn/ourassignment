@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.ActivityController">
+<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="pkg2605assignment.ActivityController">
     <children>
         <HBox layoutX="5.0" layoutY="1.0" prefHeight="26.0" prefWidth="245.0">
             <children>
@@ -25,7 +25,7 @@
                         <Insets top="3.0" />
                     </HBox.margin>
                 </Label>
-                <TextField fx:id="sysInStepGoal" prefHeight="25.0" prefWidth="66.0" text="10000" />
+                <TextField fx:id="sysInStepGoal" prefHeight="25.0" prefWidth="66.0" />
                 <Button mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="19.0" prefWidth="32.0" text="Set">
                     <font>
                         <Font size="9.0" />
