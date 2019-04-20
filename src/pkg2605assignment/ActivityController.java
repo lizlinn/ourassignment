@@ -130,10 +130,18 @@ public class ActivityController implements Initializable {
 
         stepStatus.setText((int) storeStepResult + " out of " + (int) storeGoalResult + " steps completed");
         stepProgress.setProgress((storeStepResult / storeGoalResult));
-        stepProgress.setStyle("-fx-accent: #FF3B30;");
 
-        sysInStepGoal.setText(String.valueOf((int)goalResult.getDouble(1)));
-        
+        //Colour ratings
+        if (storeStepResult / storeGoalResult < 0.5) {
+            stepProgress.setStyle("-fx-accent: #FF3B30;");
+        } else if ((storeStepResult / storeGoalResult > 0.5) && (storeStepResult / storeGoalResult < 1.0)) {
+            stepProgress.setStyle("-fx-accent: #FF9933;");
+        } else {
+            stepProgress.setStyle("-fx-accent: #4D9900;");
+        }
+
+        sysInStepGoal.setText(String.valueOf((int) goalResult.getDouble(1)));
+
         st.close();
         conn.close();
     }
