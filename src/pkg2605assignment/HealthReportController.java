@@ -56,6 +56,19 @@ public class HealthReportController implements Initializable {
     private BarChart<String, Double> stairsChart;
     @FXML
     private LineChart<String, Double> sleepChart;
+    /*
+    @FXML
+    private TableView<medicalTable> medicalTable;
+    @FXML
+    private TableColumn<medicalTable, String> colDate;
+    @FXML
+    private TableColumn<medicalTable, String> colType;
+    @FXML
+    private TableColumn<medicalTable, String> colMeds;
+    */
+    
+    //public ObservableList<medicalTable> oList;
+    
     /**
      * Initializes the controller class.
      */
@@ -263,4 +276,50 @@ public class HealthReportController implements Initializable {
         conn.close();
     }
     
+ /* Table view attempt   
+    //Load table view with database
+    public void loadMedicalTable() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+        System.out.println("connected for table");
+        //create statement
+        Statement st = conn.createStatement();
+     
+        oList = FXCollections.observableArrayList();
+        
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, type, medication from Medical "
+                + "WHERE type IS NOT NULL;";
+
+        //Populate table
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                oList.add(new medicalTable(rs.getString("date"), rs.getString("type"),
+                rs.getString("medication")));
+                System.out.println(rs.getString("date"));
+                System.out.println(rs.getString("type"));
+                System.out.println(rs.getString("medication"));
+                
+            colDate.setCellFactory(new PropertyValueFactory("date"));
+            colType.setCellFactory(new PropertyValueFactory("type"));
+            colMeds.setCellFactory(new PropertyValueFactory("meds"));
+
+            }
+
+            
+            medicalTable.setItems(oList);
+
+        } catch (Exception e) {
+
+        }
+            
+
+            
+        st.close();
+        conn.close();
+    }
+*/  
+ 
 }

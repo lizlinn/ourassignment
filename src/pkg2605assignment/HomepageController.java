@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -16,6 +18,20 @@ public class HomepageController implements Initializable {
 
     @FXML
     private AnchorPane holderPane;
+    @FXML
+    private Button btnDashboard;
+    @FXML
+    private ImageView dashboardIcon;
+    @FXML
+    private Button btnBodyProfile;
+    @FXML
+    private Button btnHealthRecords;
+    @FXML
+    private Button btnSettings;
+    @FXML
+    private Button btnSignOut;
+    @FXML
+    private Button btnNeedHelp;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
