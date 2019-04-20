@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg2605assignment;
 
 import java.net.URL;
@@ -15,25 +10,15 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author elizabethlin
- */
 public class MindfulnessController implements Initializable {
 
     @FXML
@@ -56,12 +41,7 @@ public class MindfulnessController implements Initializable {
     
     @FXML
     private TextField userinput;
-
-    
-
-    /**
-     * Initializes the controller class.
-     */
+ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -79,7 +59,7 @@ public class MindfulnessController implements Initializable {
 
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
-
+        System.out.println("Database connected for dashboard mindfulness");
         //create statement
         Statement st = conn.createStatement();
 
@@ -93,9 +73,6 @@ public class MindfulnessController implements Initializable {
             ResultSet rs = st.executeQuery(selectQuery);
             while (rs.next()) {
                 series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
-                System.out.println(rs.getString(1));
-                System.out.println(rs.getDouble(2));
-
             }
             mindfulChart.getData().add(series);
         } catch (Exception e) {
@@ -156,10 +133,6 @@ public class MindfulnessController implements Initializable {
        
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
-        
-        
-        
-        
 
         //prepared statement	
         String preparedSt = "UPDATE Goal SET mindfulgoal = '" + parseMind + "';";
@@ -173,7 +146,6 @@ public class MindfulnessController implements Initializable {
         @FXML
     void addUserInput(ActionEvent event) throws SQLException {
         String addinput = userinput.getText();
-
     }
 
 }

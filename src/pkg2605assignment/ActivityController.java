@@ -16,7 +16,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
@@ -26,8 +25,6 @@ public class ActivityController implements Initializable {
     private BarChart<String, Double> walkRunChart;
     @FXML
     private BarChart<String, Double> stepsChart;
-    @FXML
-    private AnchorPane dashboardHolderPane;
     @FXML
     private TextField sysInStepGoal;
     @FXML
@@ -70,9 +67,6 @@ public class ActivityController implements Initializable {
             ResultSet rs = st.executeQuery(selectQuery);
             while (rs.next()) {
                 series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
-                System.out.println(rs.getString(1));
-                System.out.println(rs.getDouble(2));
-
             }
             walkRunChart.getData().add(series);
         } catch (Exception e) {
@@ -102,9 +96,6 @@ public class ActivityController implements Initializable {
             ResultSet rs = st.executeQuery(selectQuery);
             while (rs.next()) {
                 series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
-                System.out.println(rs.getString(1));
-                System.out.println(rs.getDouble(2));
-
             }
             stepsChart.getData().add(series);
         } catch (Exception e) {
@@ -118,7 +109,7 @@ public class ActivityController implements Initializable {
     public void connect() throws SQLException {
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
-        System.out.println("DataBase connected");
+        System.out.println("Database connected for dashboard activity");
 
         //create statement	
         Statement st = conn.createStatement();
@@ -141,6 +132,8 @@ public class ActivityController implements Initializable {
         stepProgress.setProgress((storeStepResult / storeGoalResult));
         stepProgress.setStyle("-fx-accent: #FF3B30;");
 
+        sysInStepGoal.setText(String.valueOf((int)goalResult.getDouble(1)));
+        
         st.close();
         conn.close();
     }

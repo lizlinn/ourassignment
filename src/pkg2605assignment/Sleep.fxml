@@ -5,7 +5,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.SleepController">
+<AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="pkg2605assignment.SleepController">
    <children>
       <LineChart fx:id="sleepChart" layoutX="92.0" layoutY="22.0" legendVisible="false" prefHeight="263.0" prefWidth="383.0" title="Sleep">
         <xAxis>

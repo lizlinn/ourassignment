@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardHolderPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.MindfulnessController">
+<AnchorPane fx:id="dashboardHolderPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="pkg2605assignment.MindfulnessController">
    <children>
       <Label layoutX="14.0" layoutY="117.0" prefHeight="33.0" prefWidth="158.0" text="Just 5 minutes." textAlignment="CENTER" textFill="#ff3b30">
          <font>

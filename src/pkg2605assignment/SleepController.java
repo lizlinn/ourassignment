@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg2605assignment;
 
 import java.net.URL;
@@ -20,11 +15,6 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 
-/**
- * FXML Controller class
- *
- * @author t-genest
- */
 public class SleepController implements Initializable {
 
 @FXML
@@ -62,9 +52,6 @@ private LineChart<String, Double> sleepChart;
             ResultSet rs = st.executeQuery(selectQuery);
             while (rs.next()) {
                 series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
-                System.out.println(rs.getString(1));
-                System.out.println(rs.getDouble(2));
-
             }
             sleepChart.getData().add(series);
         } catch (Exception e) {
