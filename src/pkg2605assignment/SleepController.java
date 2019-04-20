@@ -14,11 +14,15 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -29,6 +33,23 @@ public class SleepController implements Initializable {
 
 @FXML
 private LineChart<String, Double> sleepChart;
+
+@FXML
+    private Label sleepGoalText;
+
+    @FXML
+    private TextField sysInSleepGoal;
+
+    @FXML
+    private ProgressBar sleepProgress;
+
+    @FXML
+    private Label sleepStatus;
+
+    @FXML
+    private Label errormessage;
+
+    
     /**
      * Initializes the controller class.
      */
@@ -37,6 +58,7 @@ private LineChart<String, Double> sleepChart;
     try {
         // TODO
         loadSleepChart();
+        connect();
     } catch (SQLException ex) {
         Logger.getLogger(SleepController.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -73,5 +95,43 @@ private LineChart<String, Double> sleepChart;
 
         st.close();
         conn.close();
+    }
+    
+    
+    public void connect() throws SQLException {
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+        System.out.println("DataBase connected");
+
+        //create statement	
+        Statement st = conn.createStatement();
+
+        //User name
+        String nameQuery = "SELECT firstname FROM User;";
+        ResultSet nameResult = st.executeQuery(nameQuery);
+       sleepGoalText.setText(nameResult.getString(1) + "'s Sleep Goal (hours): ");
+
+        //Mindfull Goal Progress Bar
+        String sleepQuery = "SELECT hoursasleep FROM Sleep WHERE date = '7/5/2018';";
+        ResultSet sleepResult = st.executeQuery(sleepQuery);
+        double storeSleepResult = sleepResult.getDouble(1);
+
+        String goalMindQuery = "SELECT mindfulgoal FROM Goal;";
+        ResultSet goalMindResult = st.executeQuery(goalMindQuery);
+        double storeGoalMindResult = goalMindResult.getDouble(1);
+
+        mindfulStatus.setText((int) storeMindfulResult + " out of " + (int) storeGoalMindResult + " minutes completed");
+        mindfulProgress.setProgress((storeMindfulResult / storeGoalMindResult));
+        mindfulProgress.setStyle("-fx-accent: #FF3B30;");
+
+        st.close();
+        conn.close();
+    }
+    
+    @FXML
+    void handleButtonAction(ActionEvent event) throws SQLException {
+        
+        
+
     }
 }
