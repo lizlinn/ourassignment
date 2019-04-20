@@ -8,6 +8,7 @@ package pkg2605assignment;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -116,13 +117,13 @@ private LineChart<String, Double> sleepChart;
         ResultSet sleepResult = st.executeQuery(sleepQuery);
         double storeSleepResult = sleepResult.getDouble(1);
 
-        String goalMindQuery = "SELECT mindfulgoal FROM Goal;";
-        ResultSet goalMindResult = st.executeQuery(goalMindQuery);
-        double storeGoalMindResult = goalMindResult.getDouble(1);
+        String sleepMindQuery = "SELECT sleepgoal FROM Goal;";
+        ResultSet sleepMindResult = st.executeQuery(sleepMindQuery);
+        double storeGoalSleepResult = sleepMindResult.getDouble(1);
 
-        mindfulStatus.setText((int) storeMindfulResult + " out of " + (int) storeGoalMindResult + " minutes completed");
-        mindfulProgress.setProgress((storeMindfulResult / storeGoalMindResult));
-        mindfulProgress.setStyle("-fx-accent: #FF3B30;");
+        sleepStatus.setText((int) storeSleepResult + " out of " + (int) storeGoalSleepResult + " hours");
+        sleepProgress.setProgress((storeSleepResult / storeGoalSleepResult));
+        sleepProgress.setStyle("-fx-accent: #FF3B30;");
 
         st.close();
         conn.close();
@@ -131,7 +132,31 @@ private LineChart<String, Double> sleepChart;
     @FXML
     void handleButtonAction(ActionEvent event) throws SQLException {
         
-        
+        String setSleep = sysInSleepGoal.getText();
+
+        char ch = setSleep.charAt(0);
+        int ascii = (int) ch;
+
+        //error
+        if (ascii > 31 && (ascii < 48 || ascii > 57)) {
+
+            errormessage.setText("Error! Please enter numbers only!");
+        } else {
+            double parseSleep = Double.parseDouble(setSleep);
+
+            errormessage.setText("");
+
+            //create connection
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+            //prepared statement	
+            String preparedSt = "UPDATE Goal SET sleepgoal = '" + parseSleep + "';";
+            PreparedStatement pst = conn.prepareStatement(preparedSt);
+            pst.executeUpdate();
+
+            connect();
+            conn.close();
+        }
 
     }
 }
