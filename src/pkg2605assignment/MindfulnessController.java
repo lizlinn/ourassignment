@@ -79,7 +79,7 @@ public class MindfulnessController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, mindfulminutes from Mentalwellbeing WHERE date >= '6/5/2018';";
+        String selectQuery = "SELECT date, mindfulminutes from Mentalwellbeing WHERE date >= '1/5/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -115,7 +115,7 @@ public class MindfulnessController implements Initializable {
         mindfulGoalText.setText(nameResult.getString(1) + "'s Mindfulness Minutes Goal: ");
 
         //Mindfull Goal Progress Bar
-        String mindfulQuery = "SELECT mindfulminutes FROM Mentalwellbeing WHERE date = '12/5/2018';";
+        String mindfulQuery = "SELECT mindfulminutes FROM Mentalwellbeing WHERE date = '1/5/2018';";
         ResultSet mindfulResult = st.executeQuery(mindfulQuery);
         double storeMindfulResult = mindfulResult.getDouble(1);
 

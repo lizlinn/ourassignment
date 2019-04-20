@@ -62,7 +62,7 @@ public class ActivityController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, km from Aerobic WHERE date >= '6/5/2018';";
+        String selectQuery = "SELECT date, km from Aerobic WHERE date >= '1/5/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -94,7 +94,7 @@ public class ActivityController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, steptotal FROM Steps WHERE date >= '6/5/2018';";
+        String selectQuery = "SELECT date, steptotal FROM Steps WHERE date >= '1/5/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -130,7 +130,7 @@ public class ActivityController implements Initializable {
         stepGoalText.setText(nameResult.getString(1) + "'s Step Goal: ");
 
         //Step Goal Progress Bar
-        String stepQuery = "SELECT steptotal FROM Steps WHERE date = '12/5/2018';";
+        String stepQuery = "SELECT steptotal FROM Steps WHERE date = '7/5/2018';";
         ResultSet stepResult = st.executeQuery(stepQuery);
         double storeStepResult = stepResult.getDouble(1);
 

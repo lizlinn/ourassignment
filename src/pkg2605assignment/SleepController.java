@@ -53,7 +53,7 @@ private LineChart<String, Double> sleepChart;
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, hoursasleep FROM Sleep WHERE date >= '6/4/2018';";
+        String selectQuery = "SELECT date, hoursasleep FROM Sleep WHERE date >= '1/4/2018';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
         
