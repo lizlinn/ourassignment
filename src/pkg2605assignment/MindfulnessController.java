@@ -53,6 +53,11 @@ public class MindfulnessController implements Initializable {
     
     @FXML
     private Label errormessage;
+    
+    @FXML
+    private TextField userinput;
+
+    
 
     /**
      * Initializes the controller class.
@@ -163,6 +168,12 @@ public class MindfulnessController implements Initializable {
 
         connect();
         }
+    }
+        
+        @FXML
+    void addUserInput(ActionEvent event) throws SQLException {
+        String addinput = userinput.getText();
+
     }
 
 }
