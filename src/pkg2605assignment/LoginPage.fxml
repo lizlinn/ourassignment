@@ -41,7 +41,7 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btnSignUp" layoutX="76.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#signUp" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #ff3b30;" text="Sign Up" textFill="WHITE">
+      <Button fx:id="btnSignUp" layoutX="76.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#clickSignUp" prefHeight="36.0" prefWidth="187.0" style="-fx-background-color: #ff3b30;" text="Sign Up" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
