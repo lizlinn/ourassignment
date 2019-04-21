@@ -60,12 +60,14 @@ public class DashboardController implements Initializable {
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
         //Welcome NAME
+        FXMLDocumentController user = new FXMLDocumentController();
+        String welcomeName = user.storeUser;
+        System.out.println(welcomeName);
         Statement namest = conn.createStatement();
-        String nameQuery = "SELECT firstname FROM User;";
+        String nameQuery = "SELECT firstname FROM User WHERE username = '" + welcomeName + "';";
 
         try {
             ResultSet nameResult = namest.executeQuery(nameQuery);
-
             while (nameResult.next()) {
                 welcome.setText("Welcome " + nameResult.getString(1) + ",");
             }
