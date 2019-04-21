@@ -50,7 +50,7 @@ public class SleepController implements Initializable {
         }
     }
 
-    //Load sleep line chart with database 
+    //Load default (month) sleep line chart with database 
     public void loadSleepChart() throws SQLException {
 
         //create connection
@@ -60,7 +60,8 @@ public class SleepController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, hoursasleep FROM Sleep WHERE date >= '1/4/2018';";
+        String selectQuery = "SELECT date, hoursasleep FROM Sleep "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -78,6 +79,102 @@ public class SleepController implements Initializable {
         st.close();
         conn.close();
     }
+    
+    //Load Year filter for sleep chart
+    @FXML
+     public void buttonSleepYear() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, hoursasleep FROM Sleep "
+                + "WHERE date LIKE '%18';";
+        
+        sleepChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            sleepChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for sleep chart
+    @FXML
+     public void buttonSleepMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, hoursasleep FROM Sleep "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        sleepChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            sleepChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for sleep chart 
+    @FXML
+     public void buttonSleepWeek() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, hoursasleep FROM Sleep "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        sleepChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            sleepChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    } 
 
     public void connect() throws SQLException {
         //create connection
@@ -93,7 +190,7 @@ public class SleepController implements Initializable {
         sleepGoalText.setText(nameResult.getString(1) + "'s Sleep Goal (hours): ");
 
         //Mindfull Goal Progress Bar
-        String sleepQuery = "SELECT hoursasleep FROM Sleep WHERE date = '7/5/2018';";
+        String sleepQuery = "SELECT hoursasleep FROM Sleep WHERE date = '07/05/18';";
         ResultSet sleepResult = st.executeQuery(sleepQuery);
         double storeSleepResult = sleepResult.getDouble(1);
 

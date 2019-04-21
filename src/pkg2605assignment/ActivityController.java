@@ -18,6 +18,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 
 public class ActivityController implements Initializable {
 
@@ -47,10 +48,10 @@ public class ActivityController implements Initializable {
             Logger.getLogger(ActivityController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    //Load walking/running (aerobics) bar chart with database
+   
+    //Load default (month) walking/running (aerobics) bar chart with database
     public void loadAerobicChart() throws SQLException {
-
+        
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
@@ -58,7 +59,8 @@ public class ActivityController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, km from Aerobic WHERE date >= '1/5/2018';";
+        String selectQuery = "SELECT date, km from Aerobic "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -76,8 +78,105 @@ public class ActivityController implements Initializable {
         st.close();
         conn.close();
     }
+    
+    //Load Year filter for aerobic chart
+    @FXML
+     public void buttonAerobicYear() throws SQLException {
 
-    //Load steps bar chart with database 
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, km from Aerobic "
+                + "WHERE date LIKE '%18';";
+        
+        walkRunChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            walkRunChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for aerobic chart
+    @FXML
+     public void buttonAerobicMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, km from Aerobic "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        walkRunChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            walkRunChart.getData().clear();
+            walkRunChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for aerobic chart
+    @FXML
+     public void buttonAerobicWeek() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, km from Aerobic "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        walkRunChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            walkRunChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+
+    //Load default (month) steps bar chart with database 
     public void loadStepsChart() throws SQLException {
 
         //create connection
@@ -87,7 +186,8 @@ public class ActivityController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, steptotal FROM Steps WHERE date >= '1/5/2018';";
+        String selectQuery = "SELECT date, steptotal FROM Steps "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -105,7 +205,103 @@ public class ActivityController implements Initializable {
         st.close();
         conn.close();
     }
+    
+    //Load year filter steps bar chart with database 
+    @FXML
+    public void buttonStepsYear() throws SQLException {
 
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, steptotal FROM Steps "
+                + "WHERE date LIKE '%18';";
+        
+        stepsChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate Chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            stepsChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+    
+    //Load month filter steps bar chart with database 
+    @FXML
+    public void buttonStepsMonth() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, steptotal FROM Steps "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        stepsChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate Chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            stepsChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+    
+     //Load week filter steps bar chart with database 
+    @FXML
+    public void buttonStepsWeek() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, steptotal FROM Steps "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        stepsChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate Chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            stepsChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+    
     public void connect() throws SQLException {
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
@@ -120,7 +316,7 @@ public class ActivityController implements Initializable {
         stepGoalText.setText(nameResult.getString(1) + "'s Step Goal: ");
 
         //Step Goal Progress Bar
-        String stepQuery = "SELECT steptotal FROM Steps WHERE date = '7/5/2018';";
+        String stepQuery = "SELECT steptotal FROM Steps WHERE date = '07/05/18';";
         ResultSet stepResult = st.executeQuery(stepQuery);
         double storeStepResult = stepResult.getDouble(1);
 

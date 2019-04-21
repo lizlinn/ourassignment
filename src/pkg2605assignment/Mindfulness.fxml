@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardHolderPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="pkg2605assignment.MindfulnessController">
+<AnchorPane fx:id="dashboardHolderPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.MindfulnessController">
    <children>
       <BarChart fx:id="mindfulChart" layoutX="219.0" layoutY="61.0" legendVisible="false" prefHeight="230.0" prefWidth="291.0" title="Mindful Minutes">
         <xAxis>
@@ -116,5 +116,20 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </Label>
+      <Button layoutX="296.0" layoutY="45.0" mnemonicParsing="false" onAction="#buttonMindfulYear" text="Year">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="337.0" layoutY="45.0" mnemonicParsing="false" onAction="#buttonMindfulMonth" text="Month">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="386.0" layoutY="45.0" mnemonicParsing="false" onAction="#buttonMindfulWeek" text="Week">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

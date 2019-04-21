@@ -73,7 +73,8 @@ public class MindfulnessController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, mindfulminutes from Mentalwellbeing WHERE date >= '1/5/2018';";
+        String selectQuery = "SELECT date, mindfulminutes from Mentalwellbeing "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -91,6 +92,103 @@ public class MindfulnessController implements Initializable {
         st.close();
         conn.close();
     }
+    
+//Load Year filter for mindful chart
+    @FXML
+     public void buttonMindfulYear() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, mindfulminutes from Mentalwellbeing "
+                + "WHERE date LIKE '%18';";
+        
+        mindfulChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            mindfulChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for mindful chart
+    @FXML
+     public void buttonMindfulMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, mindfulminutes from Mentalwellbeing "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        mindfulChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            mindfulChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for mindful 
+    @FXML
+     public void buttonMindfulWeek() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, mindfulminutes from Mentalwellbeing "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        mindfulChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            mindfulChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }    
+    
 
     public void connect() throws SQLException {
         //create connection
@@ -106,7 +204,7 @@ public class MindfulnessController implements Initializable {
         mindfulGoalText.setText(nameResult.getString(1) + "'s Mindfulness Minutes Goal: ");
 
         //Mindfull Goal Progress Bar
-        String mindfulQuery = "SELECT mindfulminutes FROM Mentalwellbeing WHERE date = '7/5/2018';";
+        String mindfulQuery = "SELECT mindfulminutes FROM Mentalwellbeing WHERE date = '07/05/18';";
         ResultSet mindfulResult = st.executeQuery(mindfulQuery);
         double storeMindfulResult = mindfulResult.getDouble(1);
 
