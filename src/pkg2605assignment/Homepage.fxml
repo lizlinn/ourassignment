@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="holderPane" prefHeight="567.0" prefWidth="953.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="pkg2605assignment.HomepageController">
+<AnchorPane id="AnchorPane" fx:id="holderPane1" prefHeight="567.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.HomepageController">
    <children>
       <VBox prefHeight="567.0" prefWidth="236.0" style="-fx-background-color: #ff3b30;">
          <children>
@@ -91,7 +91,7 @@
                   <Insets left="57.0" />
                </padding>
             </Button>
-            <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Sign Out" textFill="WHITE">
+            <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" onMouseClicked="#switchSignOut" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Sign Out" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>

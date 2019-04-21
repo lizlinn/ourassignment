@@ -32,6 +32,8 @@ public class HomepageController implements Initializable {
     private Button btnSignOut;
     @FXML
     private Button btnNeedHelp;
+    @FXML
+    private AnchorPane holderPane1;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,8 +70,14 @@ public class HomepageController implements Initializable {
     }
 
     @FXML
+    private void switchSignOut(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+        holderPane1.getChildren().setAll(pane); 
+    }
+    
+    @FXML
     private void switchNeedHelp(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("NeedHelpPage.fxml"));
         holderPane.getChildren().setAll(pane);
-    }
+    } 
 }

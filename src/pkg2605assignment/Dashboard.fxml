@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="pkg2605assignment.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.DashboardController">
    <children>
       <Label fx:id="welcome" layoutX="27.0" layoutY="44.0" text="Welcome Name," textFill="#ff3b30">
          <font>
@@ -130,28 +130,43 @@
       </Pane>
       <Pane layoutX="379.0" layoutY="409.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">
          <children>
-            <AnchorPane layoutX="26.0" layoutY="12.0">
+            <VBox alignment="CENTER" layoutY="11.0" prefHeight="114.0" prefWidth="141.0">
                <children>
                   <Label alignment="CENTER" text="Calories Burned">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </Label>
-                  <Label fx:id="caloriesBurned" layoutY="72.0" text="190.7 cal">
+                  <ImageView fitHeight="47.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@DashboardStatCaloriesBurned.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label fx:id="caloriesBurned" text="190.7 cal" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Light" size="30.0" />
                      </font>
                      <padding>
                         <Insets left="-8.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </Label>
-                  <ImageView fitHeight="47.0" fitWidth="70.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@DashboardStatCaloriesBurned.png" />
-                     </image>
-                  </ImageView>
                </children>
-            </AnchorPane>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
          </children>
       </Pane>
       <Pane layoutX="550.0" layoutY="409.0" prefHeight="131.0" prefWidth="141.0" style="-fx-background-color: F8E5E2;">

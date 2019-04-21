@@ -75,6 +75,9 @@ public class FXMLDocumentController implements Initializable {
         } catch (Exception e) {
             result.setText("Your Sign On details are incorrect. Please check your details and try again.");
         }
+        
+        st.close();
+        conn.close();
     }
 
     @FXML
