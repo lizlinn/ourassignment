@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg2605assignment;
 
 import java.net.URL;
@@ -20,11 +15,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
-/**
- * FXML Controller class
- *
- * @author michellexu
- */
 public class BodyProfilePageController implements Initializable {
 
     @FXML
@@ -50,10 +40,6 @@ public class BodyProfilePageController implements Initializable {
     @FXML
     private Label bLeanDate;
 
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -74,7 +60,7 @@ public class BodyProfilePageController implements Initializable {
         Statement st = conn.createStatement();
         
         //Welcome NAME
-        String nameQuery = "SELECT firstname FROM User;";
+        String nameQuery = "SELECT firstname FROM User WHERE username = '" + DashboardController.getName().toString() + "';";
         ResultSet nameResult = st.executeQuery(nameQuery);
         bWelcome.setText(nameResult.getString(1) + "'s Body Profile");
         

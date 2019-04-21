@@ -8,18 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -150,6 +145,7 @@ public class SignUpPageController implements Initializable {
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
         Statement st2 = conn.createStatement();
+        
         String signInQuery = "INSERT INTO User (firstname, lastname, height, username, password, age, gender) "
                 + "VALUES ('" + fname + "', '" + lname + "', '" + intHeight + "', '" + email + "', '" + password + "', '" + intAge + "', '" + gender + "');";
         try {

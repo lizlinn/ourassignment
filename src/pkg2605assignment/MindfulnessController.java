@@ -101,7 +101,7 @@ public class MindfulnessController implements Initializable {
         Statement st = conn.createStatement();
 
         //User name
-        String nameQuery = "SELECT firstname FROM User;";
+        String nameQuery = "SELECT firstname FROM User WHERE username = '" + DashboardController.getName().toString() + "';";
         ResultSet nameResult = st.executeQuery(nameQuery);
         mindfulGoalText.setText(nameResult.getString(1) + "'s Mindfulness Minutes Goal: ");
 

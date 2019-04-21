@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,7 +35,7 @@ public class FXMLDocumentController implements Initializable {
     private Button btnSignUp;
     @FXML
     private Label welcome1;
-    
+
     public String storeUser;
 
     @Override
@@ -48,13 +49,14 @@ public class FXMLDocumentController implements Initializable {
 
         user = username.getText();
         pass = password.getText();
-        
+
         this.storeUser = user;
+        storeUser();
+
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
         Statement st = conn.createStatement();
         String loginQuery = "SELECT * FROM User WHERE username = '" + user + "' and password = '" + pass + "';";
-       
         try {
             ResultSet rs = st.executeQuery(loginQuery);
             if (rs.next()) {
@@ -69,7 +71,7 @@ public class FXMLDocumentController implements Initializable {
         } catch (Exception e) {
             result.setText("Your Sign On details are incorrect. Please check your details and try again.");
         }
-        
+
         st.close();
         conn.close();
     }
@@ -78,5 +80,16 @@ public class FXMLDocumentController implements Initializable {
     private void clickSignUp(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("SignUpPage.fxml"));
         holderPane.getChildren().setAll(pane);
+    }
+
+    public void storeUser() throws SQLException {
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        String preparedSt = "UPDATE Login SET loggeduser = '" + storeUser + "';";
+        PreparedStatement pst = conn.prepareStatement(preparedSt);
+        pst.executeUpdate();
+
+        pst.close();
+        conn.close();
     }
 }
