@@ -42,6 +42,8 @@ public class DashboardController implements Initializable {
     private Button btnMindfulness;
     @FXML
     private Button btnSleep;
+    
+    public static String storeNameResult;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,15 +58,27 @@ public class DashboardController implements Initializable {
         }
     }
 
+    public static String getName() throws SQLException{
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+        Statement st = conn.createStatement();
+        String getNameQuery = "SELECT loggeduser FROM Login;";
+        
+        ResultSet getNameResult = st.executeQuery(getNameQuery);
+        storeNameResult = getNameResult.getString(1);
+        
+        st.close();
+        conn.close();
+        
+        return storeNameResult;
+    }
+    
     public void name() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
         //Welcome NAME
-        FXMLDocumentController user = new FXMLDocumentController();
-        String welcomeName = user.storeUser;
-        System.out.println(welcomeName);
         Statement namest = conn.createStatement();
-        String nameQuery = "SELECT firstname FROM User WHERE username = '" + welcomeName + "';";
+        
+        String nameQuery = "SELECT firstname FROM User WHERE username = '" + DashboardController.getName().toString() + "';";
 
         try {
             ResultSet nameResult = namest.executeQuery(nameQuery);

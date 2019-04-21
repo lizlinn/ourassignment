@@ -311,7 +311,7 @@ public class ActivityController implements Initializable {
         Statement st = conn.createStatement();
 
         //User name
-        String nameQuery = "SELECT firstname FROM User;";
+        String nameQuery = "SELECT firstname FROM User WHERE username = '" + DashboardController.getName().toString() +"';";
         ResultSet nameResult = st.executeQuery(nameQuery);
         stepGoalText.setText(nameResult.getString(1) + "'s Step Goal: ");
 
@@ -366,6 +366,7 @@ public class ActivityController implements Initializable {
             pst.executeUpdate();
 
             connect();
+            pst.close();
             conn.close();
         }
     }

@@ -185,7 +185,7 @@ public class SleepController implements Initializable {
         Statement st = conn.createStatement();
 
         //User name
-        String nameQuery = "SELECT firstname FROM User;";
+        String nameQuery = "SELECT firstname FROM User WHERE username = '" + DashboardController.getName().toString() + "';";
         ResultSet nameResult = st.executeQuery(nameQuery);
         sleepGoalText.setText(nameResult.getString(1) + "'s Sleep Goal (hours): ");
 
