@@ -83,7 +83,7 @@ public class DashboardController implements Initializable {
 
         //Resting Heart Rate stats - 12/05/2018
         Statement heartst = conn.createStatement();
-        String heartRateQuery = "SELECT averagecount FROM Restingheartrate WHERE date = '7/5/2018';";
+        String heartRateQuery = "SELECT averagecount FROM Restingheartrate WHERE date = '07/05/18';";
 
         try {
             ResultSet heartRateResult = heartst.executeQuery(heartRateQuery);
@@ -103,7 +103,7 @@ public class DashboardController implements Initializable {
 
         //Nutrition stats - 12/05/2018
         Statement nutritionst = conn.createStatement();
-        String nutritionQuery = "SELECT protein, calories FROM Food WHERE date = '7/5/2018';";
+        String nutritionQuery = "SELECT protein, calories FROM Food WHERE date = '07/05/18';";
 
         try {
             ResultSet nutritionResult = nutritionst.executeQuery(nutritionQuery);
@@ -124,7 +124,7 @@ public class DashboardController implements Initializable {
 
         //Calories Burned stats - 12/05/2018
         Statement caloriesst = conn.createStatement();
-        String caloriesBurnedQuery = "SELECT calories FROM Resistance WHERE date = '7/5/2018';";
+        String caloriesBurnedQuery = "SELECT calories FROM Resistance WHERE date = '07/05/18';";
 
         try {
             ResultSet caloriesBurnedResult = caloriesst.executeQuery(caloriesBurnedQuery);

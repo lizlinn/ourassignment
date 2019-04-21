@@ -82,6 +82,18 @@ public class SignUpPageController implements Initializable {
             //inserted here to prevent NulInvocation error in output as it will point to a null value since nothing is selected initially
             gender = genderComboBox.getSelectionModel().getSelectedItem().toString();
 
+            //check integers are entered for age and height
+            try {
+                int intHeight = Integer.parseInt(height);
+            } catch (Exception e) {
+                result.setText("Please enter a number for height.");
+            }
+            try {
+                int intAge = Integer.parseInt(age);
+            } catch (Exception e) {
+                result.setText("Please enter a number for age.");
+            }
+
             //check password is same to confirm password
             if (!password.equals(confirmPassword)) {
                 result.setText("Password does not match Confirm Password.");
@@ -110,7 +122,6 @@ public class SignUpPageController implements Initializable {
                 st.close();
                 conn.close();
             }
-
         }
 
     }

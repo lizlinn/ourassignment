@@ -46,7 +46,7 @@
          <children>
             <BarChart fx:id="stepsChart" alternativeRowFillVisible="false" legendVisible="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="210.0" prefWidth="241.0" title="Steps">
               <xAxis>
-                <CategoryAxis label="Date" side="BOTTOM" />
+                <CategoryAxis label="Day" side="BOTTOM" />
               </xAxis>
               <yAxis>
                 <NumberAxis label="Steps" side="LEFT" />

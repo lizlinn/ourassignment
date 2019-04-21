@@ -110,7 +110,7 @@ public class HealthReportController implements Initializable {
         Height.setText(heightResult.getString(1) + " m");
         
         //Weight stats - 07/05/2018
-        String weightQuery = "SELECT weight FROM BMI WHERE date = '7/5/2018';";
+        String weightQuery = "SELECT weight FROM BMI WHERE date = '07/05/18';";
         ResultSet weightResult = st.executeQuery(weightQuery);
         Weight.setText(weightResult.getString(1) + " kg");
         
@@ -120,27 +120,27 @@ public class HealthReportController implements Initializable {
         Age.setText(bmiResult.getString(1) + " years");
         
         //GP Date
-        String gpQuery = "SELECT Max(date) FROM Medical WHERE type = 'GP';";
+        String gpQuery = "SELECT date FROM Medical WHERE type = 'GP';";
         ResultSet gpResult = st.executeQuery(gpQuery);
         gpDate.setText(gpResult.getString(1));
         
         //Optom Date
-        String optomQuery = "SELECT Max(date) FROM Medical WHERE type = 'Optometrist';";
+        String optomQuery = "SELECT date FROM Medical WHERE type = 'Optometrist';";
         ResultSet optomResult = st.executeQuery(optomQuery);
         optomDate.setText(optomResult.getString(1));
         
         //Dentist Date
-        String dentistQuery = "SELECT Max(date) FROM Medical WHERE type = 'Dentist';";
+        String dentistQuery = "SELECT date FROM Medical WHERE type = 'Dentist';";
         ResultSet dentistResult = st.executeQuery(dentistQuery);
         dentistDate.setText(dentistResult.getString(1));
         
         //Other Date
-        String otherQuery = "SELECT Max(date) FROM Medical WHERE type = 'Other';";
+        String otherQuery = "SELECT date FROM Medical WHERE type = 'Other';";
         ResultSet otherResult = st.executeQuery(otherQuery);
         otherDate.setText(otherResult.getString(1));
         
         //Today's date
-        String dateQuery = "SELECT Max(date) FROM Sleep;";
+        String dateQuery = "SELECT date FROM Sleep WHERE date = '07/05/18';";
         ResultSet dateResult = st.executeQuery(dateQuery);
         date.setText(dateResult.getString(1));
         
@@ -148,9 +148,9 @@ public class HealthReportController implements Initializable {
         conn.close();
     }  
     
-   //Load walking/running (aerobics) bar chart with database
+   //Load default (month) walking/running (aerobics) bar chart with database
     public void loadAerobicChart() throws SQLException {
-
+        
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
 
@@ -158,7 +158,8 @@ public class HealthReportController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, km from Aerobic WHERE date >= '12/4/2018';";
+        String selectQuery = "SELECT date, km from Aerobic "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -167,9 +168,6 @@ public class HealthReportController implements Initializable {
             ResultSet rs = st.executeQuery(selectQuery);
             while (rs.next()) {
                 series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
-                //System.out.println(rs.getString(1));
-                //System.out.println(rs.getDouble(2));
-
             }
             walkRunChart.getData().add(series);
         } catch (Exception e) {
@@ -180,7 +178,105 @@ public class HealthReportController implements Initializable {
         conn.close();
     }
     
-    //Load gym attendance bar chart with database
+    //Load Year filter for aerobic chart
+    @FXML
+     public void buttonAerobicYear() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, km from Aerobic "
+                + "WHERE date LIKE '%18';";
+        
+        walkRunChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            walkRunChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for aerobic chart
+    @FXML
+     public void buttonAerobicMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, km from Aerobic "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        walkRunChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            //walkRunChart.getData().clear();
+            walkRunChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for aerobic chart
+    @FXML
+     public void buttonAerobicWeek() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, km from Aerobic "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        walkRunChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            walkRunChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+
+    
+    //Load deafult (month) gym attendance bar chart with database
     public void loadGymChart() throws SQLException {
 
         //create connection
@@ -190,7 +286,8 @@ public class HealthReportController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, attendance from Gym WHERE date >= '12/4/2018';";
+        String selectQuery = "SELECT date, attendance from Gym "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -212,7 +309,104 @@ public class HealthReportController implements Initializable {
         conn.close();
     }
     
-    //Load gym attendance bar chart with database
+    //Load Year filter for gym chart
+    @FXML
+     public void buttonGymYear() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, attendance from Gym "
+                + "WHERE date LIKE '%18';";
+        
+        gymChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            gymChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for gym chart
+    @FXML
+     public void buttonGymMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, attendance from Gym "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        gymChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            gymChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for gym chart
+    @FXML
+     public void buttonGymWeek() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, attendance from Gym "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        gymChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            gymChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+
+    
+    //Load default (month) stairs bar chart with database
     public void loadStairsChart() throws SQLException {
 
         //create connection
@@ -222,7 +416,8 @@ public class HealthReportController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, flightsclimbed from Stairs WHERE date >= '12/4/2018';";
+        String selectQuery = "SELECT date, flightsclimbed from Stairs "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
@@ -243,9 +438,74 @@ public class HealthReportController implements Initializable {
         st.close();
         conn.close();
     }
+    
+    //Load Year filter for stairs chart
+    @FXML
+     public void buttonStairsYear() throws SQLException {
 
-    //Load sleep line chart with database 
-    public void loadSleepChart() throws SQLException {
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, flightsclimbed from Stairs"
+                + "WHERE date LIKE '%18';";
+        
+        stairsChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            stairsChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for stiars chart
+    @FXML
+     public void buttonStairsMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, flightsclimbed from Stairs"
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        stairsChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            stairsChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for gym chart
+    @FXML
+    public void buttonStairsWeek() throws SQLException {
         
         //create connection
         Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
@@ -254,18 +514,47 @@ public class HealthReportController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, hoursasleep FROM Sleep WHERE date >= '12/4/2018';";
+        String selectQuery = "SELECT dayofweek, flightsclimbed from Stairs"
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        stairsChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            stairsChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+
+//Load default (month) sleep line chart with database 
+    public void loadSleepChart() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, hoursasleep FROM Sleep "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
-        
+
         //Populate Chart
         try {
             ResultSet rs = st.executeQuery(selectQuery);
             while (rs.next()) {
                 series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
-                System.out.println(rs.getString(1));
-                System.out.println(rs.getDouble(2));
-
             }
             sleepChart.getData().add(series);
         } catch (Exception e) {
@@ -275,6 +564,102 @@ public class HealthReportController implements Initializable {
         st.close();
         conn.close();
     }
+    
+    //Load Year filter for sleep chart
+    @FXML
+     public void buttonSleepYear() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, hoursasleep FROM Sleep "
+                + "WHERE date LIKE '%18';";
+        
+        sleepChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            sleepChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for sleep chart
+    @FXML
+     public void buttonSleepMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, hoursasleep FROM Sleep "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        sleepChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            sleepChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for sleep chart 
+    @FXML
+     public void buttonSleepWeek() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, hoursasleep FROM Sleep "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        sleepChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            sleepChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    } 
     
  /* Table view attempt   
     //Load table view with database

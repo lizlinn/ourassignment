@@ -13,7 +13,11 @@
 
 <AnchorPane fx:id="dashboardHolderPane" prefHeight="285.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.SleepController">
    <children>
+<<<<<<< HEAD
       <LineChart fx:id="sleepChart" layoutX="11.0" layoutY="109.0" legendVisible="false" prefHeight="176.0" prefWidth="449.0" title="Sleep">
+=======
+      <LineChart fx:id="sleepChart" layoutX="27.0" layoutY="109.0" legendVisible="false" prefHeight="196.0" prefWidth="421.0" title="Sleep">
+>>>>>>> origin/master
         <xAxis>
           <CategoryAxis label="Day" side="BOTTOM" />
         </xAxis>
