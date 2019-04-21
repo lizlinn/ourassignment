@@ -78,7 +78,8 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void signUp(MouseEvent event) {
-        
+    private void clickSignUp(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("SignUpPage.fxml"));
+        holderPane.getChildren().setAll(pane);
     }
 }
