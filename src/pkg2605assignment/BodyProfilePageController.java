@@ -84,17 +84,17 @@ public class BodyProfilePageController implements Initializable {
         bHeight.setText(heightResult.getString(1) + " m");
         
         //Weight stats - 07/05/2018
-        String weightQuery = "SELECT weight FROM BMI WHERE date = '7/5/2018';";
+        String weightQuery = "SELECT weight FROM BMI WHERE date = '07/05/18';";
         ResultSet weightResult = st.executeQuery(weightQuery);
         bWeight.setText(weightResult.getString(1) + " kg");
         
         //BMI stats - 07/05/2018
-        String bmiQuery = "SELECT bmi FROM BMI WHERE date = '7/5/2018';";
+        String bmiQuery = "SELECT bmi FROM BMI WHERE date = '07/05/18';";
         ResultSet bmiResult = st.executeQuery(bmiQuery);
         bBMI.setText(bmiResult.getString(1));
         
         //Lean and Fat Mass Ratio stats - 07/05/2018
-        String leanFatQuery = "SELECT ratio FROM Leanfatmass WHERE date = '7/5/2018';";
+        String leanFatQuery = "SELECT ratio FROM Leanfatmass WHERE date = '07/05/18';";
         ResultSet leanFatResult = st.executeQuery(leanFatQuery);
         bLeanFat.setText(leanFatResult.getString(1));
         
@@ -119,7 +119,7 @@ public class BodyProfilePageController implements Initializable {
         conn.close();
     }
     
-    //Load bmi line chart with database
+    //Load default (month) bmi line chart with database
     public void loadBmiChart() throws SQLException {
         
         //create connection
@@ -129,7 +129,8 @@ public class BodyProfilePageController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, BMI FROM BMI WHERE date >= '29/4/2018';";
+        String selectQuery = "SELECT date, BMI FROM BMI "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
         
@@ -151,7 +152,104 @@ public class BodyProfilePageController implements Initializable {
         conn.close();
     }
     
-    //Load lean fat mass ratio line chart with database 
+    //Load Year filter for bmi chart
+    @FXML
+     public void buttonBMIYear() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, BMI FROM BMI "
+                + "WHERE date LIKE '%18';";
+        
+        bmiChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            bmiChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for bmi chart
+    @FXML
+     public void buttonBMIMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, BMI FROM BMI "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        bmiChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            bmiChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for bmi chart 
+    @FXML
+     public void buttonBMIWeek() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, BMI FROM BMI "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        bmiChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            bmiChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    } 
+
+    
+    //Load deafult (month) lean fat mass ratio line chart with database 
     public void loadLeanFatChart() throws SQLException {
         
         //create connection
@@ -161,7 +259,8 @@ public class BodyProfilePageController implements Initializable {
         Statement st = conn.createStatement();
 
         //SQL query to select relevant columns
-        String selectQuery = "SELECT date, ratio FROM Leanfatmass WHERE date >= '29/4/2018';";
+        String selectQuery = "SELECT date, ratio FROM Leanfatmass "
+                + "WHERE substr(date,4,2) = '05';";
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
         
@@ -183,4 +282,100 @@ public class BodyProfilePageController implements Initializable {
         conn.close();
     }
 
+    //Load Year filter for lean chart
+    @FXML
+     public void buttonLeanYear() throws SQLException {
+
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, ratio FROM Leanfatmass "
+                + "WHERE date LIKE '%18';";
+        
+        leanFatChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            leanFatChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Month filter for lean chart
+    @FXML
+     public void buttonLeanMonth() throws SQLException {
+        //walkRunChart.getData().clear();
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT date, ratio FROM Leanfatmass "
+                + "WHERE substr(date,4,2) = '05';";
+        
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        leanFatChart.getData().clear();
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            leanFatChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    }
+     
+    //Load Week filter for lean chart 
+    @FXML
+     public void buttonLeanWeek() throws SQLException {
+        
+        //create connection
+        Connection conn = DriverManager.getConnection("jdbc:sqlite:fitnessdata.db");
+
+        //create statement
+        Statement st = conn.createStatement();
+
+        //SQL query to select relevant columns
+        String selectQuery = "SELECT dayofweek, ratio FROM Leanfatmass "
+                + "WHERE date = '06/05/18' OR date = '07/05/18';";
+        
+        leanFatChart.getData().clear();
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        //Populate chart
+        try {
+            ResultSet rs = st.executeQuery(selectQuery);
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+            }
+            leanFatChart.getData().add(series);
+        } catch (Exception e) {
+
+        }
+
+        st.close();
+        conn.close();
+    } 
+     
 }

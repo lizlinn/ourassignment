@@ -88,19 +88,19 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <FlowPane layoutY="235.0" prefHeight="368.0" prefWidth="566.0">
+      <FlowPane layoutY="248.0" prefHeight="172.0" prefWidth="600.0">
          <children>
             <BarChart fx:id="gymChart" prefHeight="185.0" prefWidth="190.0" title="Gym Attendance">
               <xAxis>
-                <CategoryAxis label="Date" side="BOTTOM" />
+                <CategoryAxis label="Day" side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis label="Attendance" side="LEFT" />
+                <NumberAxis label="Attend" side="LEFT" />
               </yAxis>
             </BarChart>
-            <BarChart fx:id="walkRunChart" layoutX="10.0" layoutY="10.0" prefHeight="185.0" prefWidth="190.0" title="Walking/Running">
+            <BarChart fx:id="walkRunChart" layoutX="10.0" layoutY="10.0" prefHeight="177.0" prefWidth="200.0" title="Walking/Running">
                <xAxis>
-                  <CategoryAxis label="Date" side="BOTTOM" />
+                  <CategoryAxis label="Day" side="BOTTOM" />
                </xAxis>
                <yAxis>
                   <NumberAxis label="Km" side="LEFT" />
@@ -108,20 +108,12 @@
             </BarChart>
             <BarChart fx:id="stairsChart" layoutX="210.0" layoutY="10.0" prefHeight="185.0" prefWidth="172.0" title="Stairs">
                <xAxis>
-                  <CategoryAxis label="Date" side="BOTTOM" />
+                  <CategoryAxis label="Day" side="BOTTOM" />
                </xAxis>
                <yAxis>
                   <NumberAxis label="Flights" side="LEFT" />
                </yAxis>
             </BarChart>
-            <LineChart fx:id="sleepChart" prefHeight="183.0" prefWidth="600.0" title="Sleep">
-              <xAxis>
-                <CategoryAxis label="Date" side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis label="Date" side="LEFT" />
-              </yAxis>
-            </LineChart>
          </children>
       </FlowPane>
       <Label layoutX="27.0" layoutY="603.0" prefHeight="23.0" prefWidth="546.0" style="-fx-background-color: ff3b30;" text=" Latest Medical Checkups" textFill="WHITE">
@@ -190,5 +182,73 @@
             <Font size="11.0" />
          </font></Label>
       <Button layoutX="526.0" layoutY="10.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="47.0" text="Print" />
+      <Button layoutX="63.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonGymYear" text="Year">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="104.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonGymMonth" text="Month">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="153.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonGymWeek" text="Week">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="263.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonAerobicYear" text="Year">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="304.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonAerobicMonth" text="Month">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="353.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonAerobicWeek" text="Week">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="460.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonStairsYear" text="Year">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="501.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonStairsMonth" text="Month">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="550.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttonStairsWeek" text="Week">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <LineChart fx:id="sleepChart" layoutX="52.0" layoutY="414.0" prefHeight="175.0" prefWidth="486.0" title="Sleep">
+        <xAxis>
+          <CategoryAxis label="Day" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Hours" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Button layoutX="263.0" layoutY="580.0" mnemonicParsing="false" onAction="#buttonSleepYear" text="Year">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="304.0" layoutY="580.0" mnemonicParsing="false" onAction="#buttonSleepMonth" text="Month">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button layoutX="353.0" layoutY="580.0" mnemonicParsing="false" onAction="#buttonSleepWeek" text="Week">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
