@@ -107,7 +107,7 @@ public class HealthReportController implements Initializable {
         //Height stats 
         String heightQuery = "SELECT height FROM User;";
         ResultSet heightResult = st.executeQuery(heightQuery);
-        Height.setText(heightResult.getString(1) + " m");
+        Height.setText(heightResult.getString(1) + " cm");
         
         //Weight stats - 07/05/2018
         String weightQuery = "SELECT weight FROM BMI WHERE date = '07/05/18';";

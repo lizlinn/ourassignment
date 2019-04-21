@@ -45,7 +45,7 @@ public class HomepageController implements Initializable {
         }
       }    
 
-     @FXML
+    @FXML
     private void switchDashboard(MouseEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         holderPane.getChildren().setAll(pane); 
