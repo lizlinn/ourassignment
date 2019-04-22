@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.BodyProfilePageController">
+   <children>
+      <Label fx:id="bWelcome" layoutX="27.0" layoutY="44.0" text="Name's Body Profile" textFill="#ff3b30">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="25.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+         <children>
+            <Label fx:id="bHeight" layoutX="234.0" layoutY="2.0" text="X m">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Height">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="bHeightDate" layoutX="254.0" layoutY="35.0" text="07/05/2018">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="25.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+         <children>
+            <Label fx:id="bBMI" layoutX="234.0" layoutY="2.0" text="X">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="BMI">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="bBMIDate" layoutX="254.0" layoutY="35.0" text="07/05/2018">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="370.0" layoutY="97.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+         <children>
+            <Label fx:id="bWeight" layoutX="222.0" layoutY="3.0" text="X kg">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Weight">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="bWeightDate" layoutX="254.0" layoutY="35.0" text="07/05/2018">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="370.0" layoutY="195.0" prefHeight="54.0" prefWidth="330.0" style="-fx-background-color: F8E5E2;">
+         <children>
+            <Label fx:id="bLeanFat" layoutX="234.0" layoutY="2.0" text="X">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="12.0" layoutY="4.0" text="Lean/Fat Ratio">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="bLeanDate" layoutX="254.0" layoutY="35.0" text="07/05/2018">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <FlowPane layoutX="12.0" layoutY="284.0" prefHeight="272.0" prefWidth="687.0">
+         <children>
+            <LineChart fx:id="bmiChart" legendVisible="false" prefHeight="271.0" prefWidth="341.0" title="BMI">
+              <xAxis>
+                <CategoryAxis label="Date" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="BMI" side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <LineChart fx:id="leanFatChart" legendVisible="false" prefHeight="271.0" prefWidth="341.0" title="Lean and Fat Mass Ratio">
+               <xAxis>
+                  <CategoryAxis label="Date" side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis label="Ratio" side="LEFT" />
+               </yAxis>
+            </LineChart>
+         </children>
+      </FlowPane>
+      <Button layoutX="72.0" layoutY="262.0" mnemonicParsing="false" onAction="#buttonBMIYear" text="Year">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="121.0" layoutY="262.0" mnemonicParsing="false" onAction="#buttonBMIMonth" text="Month">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="180.0" layoutY="262.0" mnemonicParsing="false" onAction="#buttonBMIWeek" text="Week">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="418.0" layoutY="262.0" mnemonicParsing="false" onAction="#buttonLeanYear" text="Year">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="467.0" layoutY="262.0" mnemonicParsing="false" onAction="#buttonLeanMonth" text="Month">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button layoutX="526.0" layoutY="262.0" mnemonicParsing="false" onAction="#buttonLeanWeek" text="Week">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

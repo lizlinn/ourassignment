@@ -1,0 +1,15 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.btns:hover {
+    -fx-background-color: #ff8982;
+}
+
+.slider .track {
+    -fx-background-color: linear-gradient(to right, #3bd679 0%, #ff3b30 100%);
+}

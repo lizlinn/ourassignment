@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="holderPane1" prefHeight="567.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkg2605assignment.HomepageController">
+   <children>
+      <VBox prefHeight="567.0" prefWidth="236.0" style="-fx-background-color: #ff3b30;">
+         <children>
+            <Pane prefHeight="131.0" prefWidth="236.0">
+               <children>
+                  <Label layoutX="106.0" layoutY="52.0" text="MyFitness" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="35.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@MyFitness%20Heart%20Logo%20-%20White%20(%23FFFFFF).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" onMouseClicked="#switchDashboard" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Dashboard" textFill="WHITE">
+               <graphic>
+                  <ImageView fx:id="dashboardIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Dashboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="57.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnBodyProfile" alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" onMouseClicked="#switchBodyProfile" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Body Profile" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Body%20Profile.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="57.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnHealthRecords" alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" onMouseClicked="#switchHealthRecords" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Health Records" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Medical%20Report.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="57.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" onMouseClicked="#switchSettings" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Settings" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="57.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" onMouseClicked="#switchSignOut" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Sign Out" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Sign%20out.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="57.0" />
+               </padding>
+            </Button>
+            <Pane prefHeight="110.0" prefWidth="236.0" />
+            <Button fx:id="btnNeedHelp" alignment="BASELINE_LEFT" graphicTextGap="30.0" mnemonicParsing="false" onMouseClicked="#switchNeedHelp" prefHeight="47.0" prefWidth="236.0" stylesheets="@homepage.css" text="Need Help" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Need%20Help.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="57.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane id="AnchorPane" fx:id="holderPane" layoutX="236.0" prefHeight="567.0" prefWidth="717.0" style="-fx-background-color: #ffffff;" />
+   </children>
+</AnchorPane>

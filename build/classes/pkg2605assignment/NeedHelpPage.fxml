@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="27.0" layoutY="44.0" text="Frequently Asked Questions" textFill="#ff3b30">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="454.0" prefHeight="76.0" prefWidth="610.0" text="We take your concerns seriously. If you have any problems with our app, please contact us: support@fitnessfanatics.com.au" wrapText="true">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="27.0" layoutY="99.0" text="How do I connect MyFitness with my other devices, such as FitBit?" textFill="#ff3b30">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Text layoutX="27.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go to settings and you can select which devices you want to connect with.">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Label alignment="CENTER" layoutX="26.0" layoutY="156.0" text="What if I want to change my goals? How do I do that?" textFill="#ff3b30">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Text layoutX="27.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Under Activity, Mindfulness, and Sleep in the dashboards, there is an option to change your goals.">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Label alignment="CENTER" layoutX="27.0" layoutY="215.0" text="What if I accidentally added in the wrong amount for mindfulness minutes?" textFill="#ff3b30">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Text layoutX="27.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You can delete minutes on the mindfulness page. Simply enter how many minutes you want to delete.">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Label alignment="CENTER" layoutX="27.0" layoutY="267.0" text="What if I want to stop receiving promotional emails?" textFill="#ff3b30">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Text layoutX="29.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go to settings and unsubscribe from our emails using the toggle.">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Label alignment="CENTER" layoutX="27.0" layoutY="319.0" text="I want to stop using this app. How do I delete my account?" textFill="#ff3b30">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Text layoutX="28.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go to settings and click “deactivate account”.">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Label alignment="CENTER" layoutX="27.0" layoutY="375.0" text="I want to see an overall look at my health and fitness. Where can I see that?" textFill="#ff3b30">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Text layoutX="28.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You can go to Health Records and generate a one page health record which summarises your overall health and fitness activities." wrappingWidth="658.998046875">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
